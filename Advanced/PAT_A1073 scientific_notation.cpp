@@ -1,6 +1,6 @@
 /*
 1073. Scientific Notation (20)
-Ê±¼äÏŞÖÆ£º100ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š100ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 Scientific notation is the way that scientists easily handle very large numbers or very small numbers. The notation matches the regular expression [+-][1-9]"."[0-9]+E[+-][0-9]+ which means that the integer portion has exactly one digit, there is at least one digit in the fractional portion, and the number and its exponent's signs are always provided even when they are positive.
@@ -28,56 +28,56 @@ Sample Output 2:
 
 
 #include <cstdio>
-#include <cstring> // strlenº¯ÊıÍ·ÎÄ¼ş
+#include <cstring> // strlenå‡½æ•°å¤´æ–‡ä»¶
 
-const int maxn = 10010; // ³¤¶È²»³¬9999Byte£¬charÎª1Byte 
-char str[maxn]; // ´æ·Å¿ÆÑ§¼ÆÊı·¨±íÊ¾µÄÊµÊı
+const int maxn = 10010; // é•¿åº¦ä¸è¶…9999Byteï¼Œcharä¸º1Byte 
+char str[maxn]; // å­˜æ”¾ç§‘å­¦è®¡æ•°æ³•è¡¨ç¤ºçš„å®æ•°
 
 int main()
 {
-	gets(str); // ÊäÈë 
-	int len = strlen(str); // Çó×Ö·û´®³¤¶È 
+	gets(str); // è¾“å…¥ 
+	int len = strlen(str); // æ±‚å­—ç¬¦ä¸²é•¿åº¦ 
 	
-	if (str[0] == '-') printf("-"); // ¸ºÊıÊä³ö¸ººÅ 
+	if (str[0] == '-') printf("-"); // è´Ÿæ•°è¾“å‡ºè´Ÿå· 
 	
 	int pos = 0;
-	while (str[pos] != 'E') pos++; // ²éÑ¯EµÄÎ»ÖÃ 
+	while (str[pos] != 'E') pos++; // æŸ¥è¯¢Eçš„ä½ç½® 
 	
 	int exp = 0;
-	for (int i = pos + 2; i < len; i++) { // ÇóÖ¸Êı´óĞ¡£¨²»°üÀ¨Õı¸ººÅ£© 
+	for (int i = pos + 2; i < len; i++) { // æ±‚æŒ‡æ•°å¤§å°ï¼ˆä¸åŒ…æ‹¬æ­£è´Ÿå·ï¼‰ 
 		exp = exp * 10 + (str[i] - '0');
 	}
 	
-	if (exp == 0) { // Ö¸ÊıÎª0ÌØÅĞ 
+	if (exp == 0) { // æŒ‡æ•°ä¸º0ç‰¹åˆ¤ 
 		for (int i = 1; i < pos; i++) {
 			printf("%c", str[i]);
 		}
-	} else { // Ö¸Êı²»Îª0 
-		if (str[pos + 1] == '-') { // Ö¸ÊıÎª¸º 
+	} else { // æŒ‡æ•°ä¸ä¸º0 
+		if (str[pos + 1] == '-') { // æŒ‡æ•°ä¸ºè´Ÿ 
 			printf("0.");
 			
 			int count = exp - 1;
-			while (count--) printf("0"); // Êä³öexp-1¸ö0 
+			while (count--) printf("0"); // è¾“å‡ºexp-1ä¸ª0 
 			
-			for (int i = 1; i < pos; i++) { // Êä³öEÖ®Ç°µÄÊı 
-				if (str[i] == '.') continue; // Ìø¹ıĞ¡Êıµã 
+			for (int i = 1; i < pos; i++) { // è¾“å‡ºEä¹‹å‰çš„æ•° 
+				if (str[i] == '.') continue; // è·³è¿‡å°æ•°ç‚¹ 
 				printf("%c", str[i]);
 			}
 		}
 		
-		if (str[pos + 1] == '+') { // Ö¸ÊıÎªÕı 
-			for (int i = 1; i < pos; i++) { // Êä³öEÖ®Ç°µÄÊı 
-				if (str[i] == '.') continue; // Ìø¹ıĞ¡Êıµã
+		if (str[pos + 1] == '+') { // æŒ‡æ•°ä¸ºæ­£ 
+			for (int i = 1; i < pos; i++) { // è¾“å‡ºEä¹‹å‰çš„æ•° 
+				if (str[i] == '.') continue; // è·³è¿‡å°æ•°ç‚¹
 				printf("%c", str[i]);
 				
-				// expÎªĞ¡ÊıµãĞèºóÒÆµÄÎ»Êı£¬²»µÈÓÚ(pos-1)-2Ê±ÔòÊä³öĞ¡Êıµã 
+				// expä¸ºå°æ•°ç‚¹éœ€åç§»çš„ä½æ•°ï¼Œä¸ç­‰äº(pos-1)-2æ—¶åˆ™è¾“å‡ºå°æ•°ç‚¹ 
 				if (i == exp + 2 && exp != pos - 3) {
 					printf(".");
 				}
 			}
 			
 			int count = exp - (pos - 3);
-			while ((count--) > 0) printf("0"); // exp½Ï´ó£¬Êä³öexp-(pos-3)¸ö0 
+			while ((count--) > 0) printf("0"); // expè¾ƒå¤§ï¼Œè¾“å‡ºexp-(pos-3)ä¸ª0 
 		}
 	}
 	return 0;

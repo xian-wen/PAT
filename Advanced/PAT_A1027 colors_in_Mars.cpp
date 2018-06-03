@@ -1,6 +1,6 @@
 /*
 1027. Colors in Mars (20)
-Ê±¼äÏŞÖÆ£º400ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š400ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 People in Mars represent the colors in their computers in a similar way as the Earth people. That is, a color is represented by a 6-digit number, where the first 2 digits are for Red, the middle 2 digits for Green, and the last 2 digits for Blue. The only difference is that they use radix 13 (0-9 and A-C) instead of 16. Now given a color in three decimal numbers (each between 0 and 168), you are supposed to output their Mars RGB values.
@@ -24,22 +24,22 @@ Sample Output:
 
 int main()
 {
-	char c[13] = { // ½¨Á¢0-13Óë'0'-'9'¡¢'A'¡¢'B'¡¢'C'¶ÔÓ¦¹ØÏµ 
+	char c[13] = { // å»ºç«‹0-13ä¸'0'-'9'ã€'A'ã€'B'ã€'C'å¯¹åº”å…³ç³» 
 		'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C'
 	};
 	
-	for (int i = 0; i < 3; i++) { // Ñ­»·3´Î 
+	for (int i = 0; i < 3; i++) { // å¾ªç¯3æ¬¡ 
 		int n;
 		scanf("%d", &n);
 		
-		int a[2], num = 0; // numÃ¿´ÎÑ­»·¾ùĞè³õÊ¼»¯ 
+		int a[2], num = 0; // numæ¯æ¬¡å¾ªç¯å‡éœ€åˆå§‹åŒ– 
 		do {
-			a[num++] = n % 13; // ³ı»ùÈ¡Óà 
+			a[num++] = n % 13; // é™¤åŸºå–ä½™ 
 			n /= 13;
-		} while (n); // ÉÌ²»Îª0Ñ­»·¼ÌĞø 
+		} while (n); // å•†ä¸ä¸º0å¾ªç¯ç»§ç»­ 
 		
-		if (i == 0) printf("#"); // RÖ®Ç°¼ÓÉÏ#ºÅ 
-		printf("%c%c", c[a[1]], c[a[0]]); // ¸ù¾İ½øÖÆ×ª»»ºóµÄÊı×ÖÊä³öÏàÓ¦×Ö·û 
+		if (i == 0) printf("#"); // Rä¹‹å‰åŠ ä¸Š#å· 
+		printf("%c%c", c[a[1]], c[a[0]]); // æ ¹æ®è¿›åˆ¶è½¬æ¢åçš„æ•°å­—è¾“å‡ºç›¸åº”å­—ç¬¦ 
 	}
 	return 0; 
 }

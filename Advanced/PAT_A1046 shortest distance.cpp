@@ -1,6 +1,6 @@
 /*
 1046. Shortest Distance (20)
-Ê±¼äÏŞÖÆ£º100ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š100ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 The task is really simple: given N exits on a highway which forms a simple cycle, you are supposed to tell the shortest distance between any pair of exits.
@@ -29,30 +29,30 @@ Sample Output:
 #include <cstdio>
 
 const int N = 100010;
-int dis[N]; // dis[i]±íÊ¾³ö¿Ú1Ë³Ê±Õëµ½i+1µÄ¾àÀë 
-int dis12[N]; // dis12[i]±íÊ¾³ö¿Úiµ½i+1µÄ¾àÀë 
+int dis[N]; // dis[i]è¡¨ç¤ºå‡ºå£1é¡ºæ—¶é’ˆåˆ°i+1çš„è·ç¦» 
+int dis12[N]; // dis12[i]è¡¨ç¤ºå‡ºå£iåˆ°i+1çš„è·ç¦» 
  
 int main()
 {
-	int n, round = 0; // ³ö¿ÚÊıÁ¿¡¢×ÜµÄÖÜ³¤ 
+	int n, round = 0; // å‡ºå£æ•°é‡ã€æ€»çš„å‘¨é•¿ 
 	scanf("%d", &n);
 	for (int i = 1; i <= n; i++) {
 		scanf("%d", &dis12[i]);
-		round += dis12[i]; // ÀÛ¼ÆÖÜ³¤ 
-		dis[i] = round; // Ô¤´¦ÀídisÊı×é 
+		round += dis12[i]; // ç´¯è®¡å‘¨é•¿ 
+		dis[i] = round; // é¢„å¤„ç†disæ•°ç»„ 
 	}
 	
 	int m, exit1, exit2;
-	scanf("%d", &m); // m×éÊı¾İ 
+	scanf("%d", &m); // mç»„æ•°æ® 
 	for (int i = 0; i < m; i++) {
-		scanf("%d%d", &exit1, &exit2); // Á½¸ö³ö¿ÚºÅ 
-		if (exit1 > exit2) { // ½»»»Ê¹Ç°ÕßĞ¡ÓÚºóÕß 
+		scanf("%d%d", &exit1, &exit2); // ä¸¤ä¸ªå‡ºå£å· 
+		if (exit1 > exit2) { // äº¤æ¢ä½¿å‰è€…å°äºåè€… 
 			int temp = exit1;
 			exit1 = exit2;
 			exit2 = temp;
 		}
-		int dis12 = dis[exit2 - 1] - dis[exit1 - 1]; // Á½³ö¿Ú¼äµÄ¾àÀë 
-		dis12 = dis12 < (round - dis12) ? dis12 : (round - dis12); // ×î¶Ì¾àÀë 
+		int dis12 = dis[exit2 - 1] - dis[exit1 - 1]; // ä¸¤å‡ºå£é—´çš„è·ç¦» 
+		dis12 = dis12 < (round - dis12) ? dis12 : (round - dis12); // æœ€çŸ­è·ç¦» 
 		printf("%d\n", dis12);
 	}
 	return 0;

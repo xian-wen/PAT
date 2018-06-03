@@ -1,6 +1,6 @@
 /*
 1001. A+B Format (20)
-Ê±¼äÏŞÖÆ£º400ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š400ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 Calculate a + b and output the sum in standard format -- that is, the digits must be separated into groups of three by commas (unless there are less than four digits).
@@ -28,26 +28,26 @@ int main()
 	scanf("%d%d", &a, &b);
 	
 	sum = a + b; 
-	if (sum < 0) { // ºÍÎª¸º 
-		printf("-"); // Êä³ö¸ººÅ 
-		sum = -sum; // È¡¾ø¶ÔÖµ 
+	if (sum < 0) { // å’Œä¸ºè´Ÿ 
+		printf("-"); // è¾“å‡ºè´Ÿå· 
+		sum = -sum; // å–ç»å¯¹å€¼ 
 	}
 	
-	char ans[10]; // ´æ·Å¸ñÊ½»¯µÄºÍ 
+	char ans[10]; // å­˜æ”¾æ ¼å¼åŒ–çš„å’Œ 
 	int num = 0;
 	do {
-		ans[num] = sum % 10 + '0'; // »ñÈ¡¸öÎ»£¬×ª»»³É×Ö·ûºóÔÙ´æ·Å 
-		sum /= 10; // È¥³ı¸öÎ» 
-		num++; // numÓÒÒÆ 
+		ans[num] = sum % 10 + '0'; // è·å–ä¸ªä½ï¼Œè½¬æ¢æˆå­—ç¬¦åå†å­˜æ”¾ 
+		sum /= 10; // å»é™¤ä¸ªä½ 
+		num++; // numå³ç§» 
 		
-		// ÏÂ±êÎªnum£¬±íÊ¾µÚnum+1Î»£¬¶ººÅ¼ä¸ô3Î»Êı×Ö£¬¼´µÚ4¡¢8Î» 
-		if ((num + 1) % 4 == 0 && sum > 0) { // sumÎªÕı 
-			ans[num] = ','; // Êä³ö¶ººÅ 
-			num++; // numÓÒÒÆ 
+		// ä¸‹æ ‡ä¸ºnumï¼Œè¡¨ç¤ºç¬¬num+1ä½ï¼Œé€—å·é—´éš”3ä½æ•°å­—ï¼Œå³ç¬¬4ã€8ä½ 
+		if ((num + 1) % 4 == 0 && sum > 0) { // sumä¸ºæ­£ 
+			ans[num] = ','; // è¾“å‡ºé€—å· 
+			num++; // numå³ç§» 
 		} 
-	} while (sum); // sum²»Îª0Ñ­»·¼ÌĞø 
+	} while (sum); // sumä¸ä¸º0å¾ªç¯ç»§ç»­ 
 	
-	for (int i = num - 1; i >= 0; i--) { // ÄæĞòÊä³ö 
+	for (int i = num - 1; i >= 0; i--) { // é€†åºè¾“å‡º 
 		printf("%c", ans[i]);
 	} 
 	return 0;

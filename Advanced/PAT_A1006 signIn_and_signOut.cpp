@@ -1,6 +1,6 @@
 /*
 1006. Sign In and Sign Out (25)
-Ê±¼äÏŞÖÆ£º400ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š400ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 At the beginning of every day, the first person who signs in the computer room will unlock the door, and the last one who signs out will lock the door. Given the records of signing in's and out's, you are supposed to find the ones who have unlocked and locked the door on that day.
@@ -29,21 +29,21 @@ SC3021234 CS301133
 
 
 #include <cstdio>
-#include <cstring> // strcpyº¯ÊıÍ·ÎÄ¼ş 
+#include <cstring> // strcpyå‡½æ•°å¤´æ–‡ä»¶ 
 
 struct time {
-	int hh, mm, ss; // Ê±¡¢·Ö¡¢Ãë 
+	int hh, mm, ss; // æ—¶ã€åˆ†ã€ç§’ 
 };
 
 struct person {
-	char ID[20]; // Ñ§ºÅ 
-	time in; // ½øÃÅÊ±¼ä 
-	time out; // ³öÃÅÊ±¼ä 
+	char ID[20]; // å­¦å· 
+	time in; // è¿›é—¨æ—¶é—´ 
+	time out; // å‡ºé—¨æ—¶é—´ 
 }; 
 
-person temp, unlock, lock; // ÁÙÊ±£¬¿ªÃÅÕß£¬¹ØÃÅÕß 
+person temp, unlock, lock; // ä¸´æ—¶ï¼Œå¼€é—¨è€…ï¼Œå…³é—¨è€… 
 
-// Ê±¼ä±È½Ï£¬aĞ¡ÓÚµÈÓÚb·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+// æ—¶é—´æ¯”è¾ƒï¼Œaå°äºç­‰äºbè¿”å›trueï¼Œå¦åˆ™è¿”å›false 
 bool LessEqu(time a, time b)
 {
 	if (a.hh != b.hh) return a.hh <= b.hh;
@@ -51,7 +51,7 @@ bool LessEqu(time a, time b)
 	else return a.ss <= b.ss;
 }
 
-// Ê±¼ä±È½Ï£¬a´óÓÚµÈÓÚb·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+// æ—¶é—´æ¯”è¾ƒï¼Œaå¤§äºç­‰äºbè¿”å›trueï¼Œå¦åˆ™è¿”å›false 
 bool MoreEqu(time a, time b)
 {
 	if (a.hh != b.hh) return a.hh >= b.hh;
@@ -59,7 +59,7 @@ bool MoreEqu(time a, time b)
 	else return a.ss >= b.ss;
 }
 
-// ³õÊ¼»¯¿ªÃÅÊ±¼äÎª23:59:59£¬¹ØÃÅÊ±¼äÎª00:00:00 
+// åˆå§‹åŒ–å¼€é—¨æ—¶é—´ä¸º23:59:59ï¼Œå…³é—¨æ—¶é—´ä¸º00:00:00 
 void init()
 {
 	unlock.in.hh = 23;
@@ -73,22 +73,22 @@ int main()
 	int M;
 	scanf("%d", &M);
 	while (M--) {
-		// ÊäÈëÑ§ºÅ¡¢½øÃÅÊ±¼ä¡¢³öÃÅÊ±¼ä 
+		// è¾“å…¥å­¦å·ã€è¿›é—¨æ—¶é—´ã€å‡ºé—¨æ—¶é—´ 
 		scanf("%s %d:%d:%d %d:%d:%d", temp.ID, 
 			&temp.in.hh, &temp.in.mm, &temp.in.ss, 
 			&temp.out.hh, &temp.out.mm, &temp.out.ss);  
-		// ±È½ÏµÃ³ö¿ªÃÅÊ±¼äºÍ¿ªÃÅÕßÑ§ºÅ 
+		// æ¯”è¾ƒå¾—å‡ºå¼€é—¨æ—¶é—´å’Œå¼€é—¨è€…å­¦å· 
 		if (LessEqu(temp.in, unlock.in)) {  
 			unlock.in = temp.in;
 			strcpy(unlock.ID, temp.ID);
 		}
-		// ±È½ÏµÃ³ö¹ØÃÅÊ±¼äºÍ¹ØÃÅÕßÑ§ºÅ 
+		// æ¯”è¾ƒå¾—å‡ºå…³é—¨æ—¶é—´å’Œå…³é—¨è€…å­¦å· 
 		if (MoreEqu(temp.out, lock.out)) {
 			lock.out = temp.out;
 			strcpy(lock.ID, temp.ID);
 		}
 	}
 	
-	printf("%s %s\n", unlock.ID, lock.ID); // Êä³ö¿ªÃÅÕßÑ§ºÅºÍ¹ØÃÅÕßÑ§ºÅ 
+	printf("%s %s\n", unlock.ID, lock.ID); // è¾“å‡ºå¼€é—¨è€…å­¦å·å’Œå…³é—¨è€…å­¦å· 
 	return 0;
 }

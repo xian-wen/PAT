@@ -1,18 +1,18 @@
 /*
-028. ÈË¿ÚÆÕ²é(20)
-Ê±¼äÏÞÖÆ£º200ms  ÄÚ´æÏÞÖÆ£º64MB  ´úÂë³¤¶ÈÏÞÖÆ£º16KB
+028. äººå£æ™®æŸ¥(20)
+æ—¶é—´é™åˆ¶ï¼š200ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
-ÌâÄ¿ÃèÊö£º
-Ä³³ÇÕò½øÐÐÈË¿ÚÆÕ²é£¬µÃµ½ÁËÈ«Ìå¾ÓÃñµÄÉúÈÕ¡£ÏÖÇëÄãÐ´¸ö³ÌÐò£¬ÕÒ³öÕòÉÏ×îÄê³¤ºÍ×îÄêÇáµÄÈË¡£
-ÕâÀïÈ·±£Ã¿¸öÊäÈëµÄÈÕÆÚ¶¼ÊÇºÏ·¨µÄ£¬µ«²»Ò»¶¨ÊÇºÏÀíµÄ¡ª¡ª¼ÙÉèÒÑÖªÕòÉÏÃ»ÓÐ³¬¹ý200ËêµÄÀÏÈË£¬¶ø½ñÌìÊÇ2014Äê9ÔÂ6ÈÕ£¬ËùÒÔ³¬¹ý200ËêµÄÉúÈÕºÍÎ´³öÉúµÄÉúÈÕ¶¼ÊÇ²»ºÏÀíµÄ£¬Ó¦¸Ã±»¹ýÂËµô¡£
+é¢˜ç›®æè¿°ï¼š
+æŸåŸŽé•‡è¿›è¡Œäººå£æ™®æŸ¥ï¼Œå¾—åˆ°äº†å…¨ä½“å±…æ°‘çš„ç”Ÿæ—¥ã€‚çŽ°è¯·ä½ å†™ä¸ªç¨‹åºï¼Œæ‰¾å‡ºé•‡ä¸Šæœ€å¹´é•¿å’Œæœ€å¹´è½»çš„äººã€‚
+è¿™é‡Œç¡®ä¿æ¯ä¸ªè¾“å…¥çš„æ—¥æœŸéƒ½æ˜¯åˆæ³•çš„ï¼Œä½†ä¸ä¸€å®šæ˜¯åˆç†çš„â€”â€”å‡è®¾å·²çŸ¥é•‡ä¸Šæ²¡æœ‰è¶…è¿‡200å²çš„è€äººï¼Œè€Œä»Šå¤©æ˜¯2014å¹´9æœˆ6æ—¥ï¼Œæ‰€ä»¥è¶…è¿‡200å²çš„ç”Ÿæ—¥å’Œæœªå‡ºç”Ÿçš„ç”Ÿæ—¥éƒ½æ˜¯ä¸åˆç†çš„ï¼Œåº”è¯¥è¢«è¿‡æ»¤æŽ‰ã€‚
 
-ÊäÈë¸ñÊ½£º
-ÊäÈëÔÚµÚÒ»ÐÐ¸ø³öÕýÕûÊýN£¬È¡ÖµÔÚ(0, 10^5^]£»ËæºóNÐÐ£¬Ã¿ÐÐ¸ø³ö1¸öÈËµÄÐÕÃû£¨ÓÉ²»³¬¹ý5¸öÓ¢ÎÄ×ÖÄ¸×é³ÉµÄ×Ö·û´®£©¡¢ÒÔ¼°°´¡°yyyy/mm/dd¡±£¨¼´Äê/ÔÂ/ÈÕ£©¸ñÊ½¸ø³öµÄÉúÈÕ¡£ÌâÄ¿±£Ö¤×îÄê³¤ºÍ×îÄêÇáµÄÈËÃ»ÓÐ²¢ÁÐ¡£
+è¾“å…¥æ ¼å¼ï¼š
+è¾“å…¥åœ¨ç¬¬ä¸€è¡Œç»™å‡ºæ­£æ•´æ•°Nï¼Œå–å€¼åœ¨(0, 10^5^]ï¼›éšåŽNè¡Œï¼Œæ¯è¡Œç»™å‡º1ä¸ªäººçš„å§“åï¼ˆç”±ä¸è¶…è¿‡5ä¸ªè‹±æ–‡å­—æ¯ç»„æˆçš„å­—ç¬¦ä¸²ï¼‰ã€ä»¥åŠæŒ‰â€œyyyy/mm/ddâ€ï¼ˆå³å¹´/æœˆ/æ—¥ï¼‰æ ¼å¼ç»™å‡ºçš„ç”Ÿæ—¥ã€‚é¢˜ç›®ä¿è¯æœ€å¹´é•¿å’Œæœ€å¹´è½»çš„äººæ²¡æœ‰å¹¶åˆ—ã€‚
 
-Êä³ö¸ñÊ½£º
-ÔÚÒ»ÐÐÖÐË³ÐòÊä³öÓÐÐ§ÉúÈÕµÄ¸öÊý¡¢×îÄê³¤ÈËºÍ×îÄêÇáÈËµÄÐÕÃû£¬Æä¼äÒÔ¿Õ¸ñ·Ö¸ô¡£
+è¾“å‡ºæ ¼å¼ï¼š
+åœ¨ä¸€è¡Œä¸­é¡ºåºè¾“å‡ºæœ‰æ•ˆç”Ÿæ—¥çš„ä¸ªæ•°ã€æœ€å¹´é•¿äººå’Œæœ€å¹´è½»äººçš„å§“åï¼Œå…¶é—´ä»¥ç©ºæ ¼åˆ†éš”ã€‚
 
-ÊäÈëÑùÀý£º
+è¾“å…¥æ ·ä¾‹ï¼š
 5
 John 2001/05/12
 Tom 1814/09/06
@@ -20,7 +20,7 @@ Ann 2121/01/30
 James 1814/09/05
 Steve 1967/11/20
 
-Êä³öÑùÀý£º
+è¾“å‡ºæ ·ä¾‹ï¼š
 3 Tom John
  */
 
@@ -28,27 +28,27 @@ Steve 1967/11/20
 
 #include <cstdio>
 
-struct birthday { // ³öÉúÈÕÆÚ 
-	char name[10]; // ÐÕÃû 
-	int year; // Äê 
-	int month; // ÔÂ 
-	int day; // ÈÕ 
+struct birthday { // å‡ºç”Ÿæ—¥æœŸ 
+	char name[10]; // å§“å 
+	int year; // å¹´ 
+	int month; // æœˆ 
+	int day; // æ—¥ 
 }; 
 
-birthday temp, max, min; // ÁÙÊ±Êý¾Ý£¬×î´ó³öÉúÈÕÆÚ£¬×îÐ¡³öÉúÈÕÆÚ 
+birthday temp, max, min; // ä¸´æ—¶æ•°æ®ï¼Œæœ€å¤§å‡ºç”Ÿæ—¥æœŸï¼Œæœ€å°å‡ºç”Ÿæ—¥æœŸ 
 
 int main()
 {
 	int n, count = 0;
 	scanf("%d", &n);
-	// ³õÊ¼»¯×î´ó³öÉúÈÕÆÚÎª1814/9/6£¬×îÐ¡³öÉúÈÕÆÚÎª2014/9/6 
+	// åˆå§‹åŒ–æœ€å¤§å‡ºç”Ÿæ—¥æœŸä¸º1814/9/6ï¼Œæœ€å°å‡ºç”Ÿæ—¥æœŸä¸º2014/9/6 
 	max.year = 1814; 
 	min.year = 2014;
 	max.month = min.month = 9;
 	max.day = min.day = 6;
 	while (n--) {
 		scanf("%s %d/%d/%d", &temp.name, &temp.year, &temp.month, &temp.day);
-		// ¹ýÂË³¬¹ý200ËêµÄÉúÈÕºÍÎ´³öÉúµÄÉúÈÕ 
+		// è¿‡æ»¤è¶…è¿‡200å²çš„ç”Ÿæ—¥å’Œæœªå‡ºç”Ÿçš„ç”Ÿæ—¥ 
 		if (temp.year > 2014 || temp.year < 1814 
 			|| (temp.year == 2014 
 				&& (temp.month > 9 || (temp.month == 9 && temp.day > 6)))
@@ -56,7 +56,7 @@ int main()
 				&& (temp.month < 9 || (temp.month == 9 && temp.day < 6)))) {
 			continue;
 		} else {
-			// Çó×î´ó³öÉúÈÕÆÚ 
+			// æ±‚æœ€å¤§å‡ºç”Ÿæ—¥æœŸ 
 			if (temp.year > max.year
 				|| (temp.year == max.year
 					&& (temp.month > max.month 
@@ -64,7 +64,7 @@ int main()
 							&& temp.day >= max.day)))) {
 				max = temp;
 			}
-			// Çó×îÐ¡³öÉúÈÕÆÚ 
+			// æ±‚æœ€å°å‡ºç”Ÿæ—¥æœŸ 
 			if (temp.year < min.year
 				|| (temp.year == min.year
 					&& (temp.month < min.month 
@@ -72,12 +72,12 @@ int main()
 							&& temp.day <= min.day)))) {
 				min = temp;
 			}
-			count++; // Í³¼ÆÓÐÐ§ÉúÈÕ¸öÊý 
+			count++; // ç»Ÿè®¡æœ‰æ•ˆç”Ÿæ—¥ä¸ªæ•° 
 		}
 	}
 	
-	if (count == 0) printf("0\n"); // ÎÞÓÐÐ§ÉúÈÕ£¬µ¥¶ÀÅÐ¶Ï£¬ÒÔÃâ¸ñÊ½´íÎó 
-	else { // ×îÐ¡³öÉúÈÕÆÚÎª×îÄê³¤Õß£¬×î´ó³öÉúÈÕÆÚÎª×îÄêÇáÕß
+	if (count == 0) printf("0\n"); // æ— æœ‰æ•ˆç”Ÿæ—¥ï¼Œå•ç‹¬åˆ¤æ–­ï¼Œä»¥å…æ ¼å¼é”™è¯¯ 
+	else { // æœ€å°å‡ºç”Ÿæ—¥æœŸä¸ºæœ€å¹´é•¿è€…ï¼Œæœ€å¤§å‡ºç”Ÿæ—¥æœŸä¸ºæœ€å¹´è½»è€…
 		printf("%d %s %s\n", count, min.name, max.name);
 	}
 	return 0;

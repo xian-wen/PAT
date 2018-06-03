@@ -1,6 +1,6 @@
 /*
 1055. The World's Richest (25)
-Ê±¼äÏŞÖÆ£º400ms  ÄÚ´æÏŞÖÆ£º128MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š400ms  å†…å­˜é™åˆ¶ï¼š128MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 Forbes magazine publishes every year its list of billionaires based on the annual ranking of the world's wealthiest people. Now you are supposed to simulate this job, but concentrate only on the people in a certain range of ages. That is, given the net worths of N people, you must find the M richest people in a given range of their ages.
@@ -56,51 +56,51 @@ None
 
 
 #include <cstdio>
-#include <cstring> // strcmpº¯ÊıÍ·ÎÄ¼ş 
-#include <algorithm> // sortº¯ÊıÍ·ÎÄ¼ş 
+#include <cstring> // strcmpå‡½æ•°å¤´æ–‡ä»¶ 
+#include <algorithm> // sortå‡½æ•°å¤´æ–‡ä»¶ 
 
-using namespace std; // sortÔÚstdÖĞ
+using namespace std; // sortåœ¨stdä¸­
 
 struct person {
-	char name[10]; // ĞÕÃû 
-	int age, worth; // ÄêÁä£¬¼ÛÖµ 
+	char name[10]; // å§“å 
+	int age, worth; // å¹´é¾„ï¼Œä»·å€¼ 
 };
 
 const int maxn = 100010;
 person p[maxn];
 
-// ±È½Ïº¯Êı
+// æ¯”è¾ƒå‡½æ•°
 bool cmp(person a, person b)
 {
-	if (a.worth != b.worth) return a.worth > b.worth; // ¼ÛÖµ²»µÈ£¬°´½µĞòÅÅÁĞ 
-	else if (a.age != b.age) return a.age < b.age; // ¼ÛÖµÏàµÈ£¬ÄêÇáÕßÅÅÇ° 
-	else return strcmp(a.name, b.name) < 0; // ÄêÁäÏàµÈ£¬°´ĞÕÃû×ÖÄ¸ĞòÅÅÁĞ 
+	if (a.worth != b.worth) return a.worth > b.worth; // ä»·å€¼ä¸ç­‰ï¼ŒæŒ‰é™åºæ’åˆ— 
+	else if (a.age != b.age) return a.age < b.age; // ä»·å€¼ç›¸ç­‰ï¼Œå¹´è½»è€…æ’å‰ 
+	else return strcmp(a.name, b.name) < 0; // å¹´é¾„ç›¸ç­‰ï¼ŒæŒ‰å§“åå­—æ¯åºæ’åˆ— 
 }
 
 int main()
 {
-	int n, k; // n¸öÈË£¬k×é²éÑ¯ 
+	int n, k; // nä¸ªäººï¼Œkç»„æŸ¥è¯¢ 
 	scanf("%d%d", &n, &k);
-	for (int i = 0; i < n; i++) { // ÊäÈëÈËÎïĞÅÏ¢ 
+	for (int i = 0; i < n; i++) { // è¾“å…¥äººç‰©ä¿¡æ¯ 
 		scanf("%s %d %d", p[i].name, &p[i].age, &p[i].worth);
 	}
 	
-	sort(p, p + n, cmp); // ÅÅĞò 
+	sort(p, p + n, cmp); // æ’åº 
 	
-	int m, amin, amax; // ÄêÁä¶ÎÔÚ[amin, amax]µÄm¸ö¸»ÈË 
-	for (int i = 1; i <= k; i++) { // k×é²éÑ¯ 
+	int m, amin, amax; // å¹´é¾„æ®µåœ¨[amin, amax]çš„mä¸ªå¯Œäºº 
+	for (int i = 1; i <= k; i++) { // kç»„æŸ¥è¯¢ 
 		scanf("%d%d%d", &m, &amin, &amax);
 		printf("Case #%d:\n", i); 
 		
-		// ±éÀúp[]£¬Êä³öÖÁ¶àm¸öÄêÁäÔÚ[amin, amax]µÄÈËµÄĞÅÏ¢ 
-		int j, temp = m; // Ôİ´æm 
+		// éå†p[]ï¼Œè¾“å‡ºè‡³å¤šmä¸ªå¹´é¾„åœ¨[amin, amax]çš„äººçš„ä¿¡æ¯ 
+		int j, temp = m; // æš‚å­˜m 
 		for (j = 0; j < n && m > 0; j++) {
 			if (p[j].age >= amin && p[j].age <= amax) {
 				printf("%s %d %d\n", p[j].name, p[j].age, p[j].worth);
 				m--;
 			}
 		}
-		if (m == temp) printf("None\n"); // mÎ´¸Ä±ä£¬¼´ÎŞ·ûºÏÕß
+		if (m == temp) printf("None\n"); // mæœªæ”¹å˜ï¼Œå³æ— ç¬¦åˆè€…
 	}
 	return 0;
 }
@@ -109,59 +109,59 @@ int main()
 
 /*
 #include <cstdio>
-#include <cstring> // strcmpº¯ÊıÍ·ÎÄ¼ş
-#include <algorithm> // sortº¯ÊıÍ·ÎÄ¼ş
+#include <cstring> // strcmpå‡½æ•°å¤´æ–‡ä»¶
+#include <algorithm> // sortå‡½æ•°å¤´æ–‡ä»¶
 
-using namespace std; // sortÔÚstdÖĞ
+using namespace std; // sortåœ¨stdä¸­
 
 struct person {
-	char name[10]; // ĞÕÃû
-	int age, worth; // ÄêÁä£¬¼ÛÖµ
+	char name[10]; // å§“å
+	int age, worth; // å¹´é¾„ï¼Œä»·å€¼
 };
 
 const int maxn = 100010;
 person p[maxn];
 
-// ±È½Ïº¯Êı1
+// æ¯”è¾ƒå‡½æ•°1
 bool cmp1(person a, person b)
 {
-	return a.age < b.age; // °´ÄêÁäÉıĞòÅÅÁĞ
+	return a.age < b.age; // æŒ‰å¹´é¾„å‡åºæ’åˆ—
 }
 
-// ±È½Ïº¯Êı2
+// æ¯”è¾ƒå‡½æ•°2
 bool cmp2(person a, person b)
 {
-	if (a.worth != b.worth) return a.worth > b.worth; // ¼ÛÖµ²»µÈ£¬°´½µĞòÅÅÁĞ
-	else if (a.age != b.age) return a.age < b.age; // ¼ÛÖµÏàµÈ£¬ÄêÇáÕßÅÅÇ°
-	else return strcmp(a.name, b.name) < 0; // ÄêÁäÏàµÈ£¬°´ĞÕÃû×ÖÄ¸ĞòÅÅÁĞ
+	if (a.worth != b.worth) return a.worth > b.worth; // ä»·å€¼ä¸ç­‰ï¼ŒæŒ‰é™åºæ’åˆ—
+	else if (a.age != b.age) return a.age < b.age; // ä»·å€¼ç›¸ç­‰ï¼Œå¹´è½»è€…æ’å‰
+	else return strcmp(a.name, b.name) < 0; // å¹´é¾„ç›¸ç­‰ï¼ŒæŒ‰å§“åå­—æ¯åºæ’åˆ—
 }
 
 int main()
 {
-	int n, k; // n¸öÈË£¬k´Î²éÑ¯
+	int n, k; // nä¸ªäººï¼Œkæ¬¡æŸ¥è¯¢
 	scanf("%d%d", &n, &k);
-	for (int i = 0; i < n; i++) { // ÊäÈëÈËÎïĞÅÏ¢
+	for (int i = 0; i < n; i++) { // è¾“å…¥äººç‰©ä¿¡æ¯
 		scanf("%s %d %d", p[i].name, &p[i].age, &p[i].worth);
 	}
 
-	int m, amin, amax; // ÄêÁä¶ÎÔÚ[amin, amax]µÄm¸ö¸»ÈË
+	int m, amin, amax; // å¹´é¾„æ®µåœ¨[amin, amax]çš„mä¸ªå¯Œäºº
 	for (int i = 1; i <= k; i++) {
 		scanf("%d%d%d", &m, &amin, &amax);
 
-		sort(p, p + n, cmp1); // Ã¿´Î²éÑ¯£¬¾ù°´ÄêÁäÖØÖÃÅÅĞò
+		sort(p, p + n, cmp1); // æ¯æ¬¡æŸ¥è¯¢ï¼Œå‡æŒ‰å¹´é¾„é‡ç½®æ’åº
 
 		int j = 0;
-		while (j < n && p[j].age < amin) j++; // ²éÑ¯ÄêÁä²»Ğ¡ÓÚaminµÄÆğÊ¼ÏÂ±ê
+		while (j < n && p[j].age < amin) j++; // æŸ¥è¯¢å¹´é¾„ä¸å°äºaminçš„èµ·å§‹ä¸‹æ ‡
 		int begin = j;
 
-		while (j < n && p[j].age <= amax)  j++; // ²éÑ¯ÄêÁä´óÓÚamaxµÄÖÕÖ¹ÏÂ±ê
+		while (j < n && p[j].age <= amax)  j++; // æŸ¥è¯¢å¹´é¾„å¤§äºamaxçš„ç»ˆæ­¢ä¸‹æ ‡
 		int end = j;
 
 		printf("Case #%d:\n", i);
-		if (begin >= end) printf("None\n"); // ÆğÊ¼²»Ğ¡ÓÚÖÕÖ¹£¬¼´ÎŞ·ûºÏÕß
-		else { // ÆğÊ¼Ğ¡ÓÚÖÕÖ¹
-			sort(p + begin, p + end, cmp2); // ¶Ô·ûºÏÕßÅÅĞò
-			for (j = begin; j < end && m > 0; j++) { // Êä³öm¸ö·ûºÏÕß
+		if (begin >= end) printf("None\n"); // èµ·å§‹ä¸å°äºç»ˆæ­¢ï¼Œå³æ— ç¬¦åˆè€…
+		else { // èµ·å§‹å°äºç»ˆæ­¢
+			sort(p + begin, p + end, cmp2); // å¯¹ç¬¦åˆè€…æ’åº
+			for (j = begin; j < end && m > 0; j++) { // è¾“å‡ºmä¸ªç¬¦åˆè€…
 				printf("%s %d %d\n", p[j].name, p[j].age, p[j].worth);
 				m--;
 			}

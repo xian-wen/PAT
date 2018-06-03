@@ -1,6 +1,6 @@
 /*
 1005. Spell It Right (20)
-Ê±¼äÏŞÖÆ£º400ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š400ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 Given a non-negative integer N, your task is to compute the sum of all the digits of N, and output every digit of the sum in English.
@@ -21,9 +21,9 @@ one five
 
 
 #include <cstdio>
-#include <cstring> // strlenº¯ÊıÍ·ÎÄ¼ş 
+#include <cstring> // strlenå‡½æ•°å¤´æ–‡ä»¶ 
 
-const int maxn = 110; // ²»³¬¹ı10^100 
+const int maxn = 110; // ä¸è¶…è¿‡10^100 
 
 char digit[10][10] = { // digit[0]="zero", digit[1]="one"...
 	"zero", "one", "two", "three", "four", 
@@ -33,22 +33,22 @@ char digit[10][10] = { // digit[0]="zero", digit[1]="one"...
 int main()
 {
 	char str[maxn];
-	gets(str); // ÊäÈëÕıÕûÊı 
+	gets(str); // è¾“å…¥æ­£æ•´æ•° 
 	
-	int len = strlen(str), sum = 0; // ×Ö·û´®³¤¶È£¬ºÍ 
-	for (int i = 0; i < len; i++) { // Çó¸÷Î»Êı×ÖÖ®ºÍ 
+	int len = strlen(str), sum = 0; // å­—ç¬¦ä¸²é•¿åº¦ï¼Œå’Œ 
+	for (int i = 0; i < len; i++) { // æ±‚å„ä½æ•°å­—ä¹‹å’Œ 
 		sum += str[i] - '0';
 	} 
 	
-	int ans[5], num = 0; // ´æ·ÅÃ¿Ò»Î»Êı×Ö£¬Î»Êı 
+	int ans[5], num = 0; // å­˜æ”¾æ¯ä¸€ä½æ•°å­—ï¼Œä½æ•° 
 	do {
-		ans[num++] = sum % 10; // »ñÈ¡¸öÎ» 
-		sum /= 10; // È¥³ı¸öÎ» 
-	} while (sum); // ÉÌ²»Îª0Ñ­»·¼ÌĞø 
+		ans[num++] = sum % 10; // è·å–ä¸ªä½ 
+		sum /= 10; // å»é™¤ä¸ªä½ 
+	} while (sum); // å•†ä¸ä¸º0å¾ªç¯ç»§ç»­ 
 	
-	for (int i = num - 1; i >= 0; i--) { // ÄæĞòÊä³öºÍµÄ¸÷Î»Êı×Ö¶ÔÓ¦µÄ×Ö·û 
+	for (int i = num - 1; i >= 0; i--) { // é€†åºè¾“å‡ºå’Œçš„å„ä½æ•°å­—å¯¹åº”çš„å­—ç¬¦ 
 		printf("%s", digit[ans[i]]);
-		if (i) printf(" "); // i²»Îª0£¬Êä³ö¿Õ¸ñ 
+		if (i) printf(" "); // iä¸ä¸º0ï¼Œè¾“å‡ºç©ºæ ¼ 
 	}
 	return 0;
 }

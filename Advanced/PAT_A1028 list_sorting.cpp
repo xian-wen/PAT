@@ -1,6 +1,6 @@
 /*
 1028. List Sorting (25)
-Ê±¼äÏŞÖÆ£º200ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š200ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 Excel can sort records according to any column. Now you are supposed to imitate this function.
@@ -52,35 +52,35 @@ Sample Output 3:
 
 
 #include <cstdio>
-#include <cstring> // strcmpº¯ÊıÍ·ÎÄ¼ş 
-#include <algorithm> // sortº¯ÊıÍ·ÎÄ¼ş 
+#include <cstring> // strcmpå‡½æ•°å¤´æ–‡ä»¶ 
+#include <algorithm> // sortå‡½æ•°å¤´æ–‡ä»¶ 
 
-using namespace std; // sortÔÚstdÖĞ
+using namespace std; // sortåœ¨stdä¸­
 
 struct student {
-	int id; // Ñ§ºÅ 
-	char name[10]; // ĞÕÃû 
-	int grade; // ³É¼¨ 
+	int id; // å­¦å· 
+	char name[10]; // å§“å 
+	int grade; // æˆç»© 
 }; 
 
 const int maxn = 100010;
 student stu[maxn];
 
-int c; // µÚ¼¸ÁĞ 
+int c; // ç¬¬å‡ åˆ— 
 
-// ±È½Ïº¯Êı 
+// æ¯”è¾ƒå‡½æ•° 
 bool cmp(student a, student b)
 {
 	switch (c) {
-	case 1: // °´µÚ1ÁĞ£¬Ñ§ºÅÉıĞòÅÅĞò 
+	case 1: // æŒ‰ç¬¬1åˆ—ï¼Œå­¦å·å‡åºæ’åº 
 		return a.id < b.id;
 		break;
-	case 2: // °´µÚ2ÁĞ£¬ĞÕÃû²»Í¬°´×ÖÄ¸ĞòÅÅÁĞ£¬ÏàÍ¬°´Ñ§ºÅÉıĞòÅÅÁĞ 
+	case 2: // æŒ‰ç¬¬2åˆ—ï¼Œå§“åä¸åŒæŒ‰å­—æ¯åºæ’åˆ—ï¼Œç›¸åŒæŒ‰å­¦å·å‡åºæ’åˆ— 
 		if (strcmp(a.name, b.name)) return strcmp(a.name, b.name) < 0;
 		else return a.id < b.id;
 		break;
-	default: // °´µÚ3ÁĞ£¬³É¼¨²»Í¬°´ÉıĞòÅÅÁĞ£¬ÏàÍ¬°´Ñ§ºÅÉıĞòÅÅÁĞ 
-	         // ´Ë´¦ÈôĞ´³Écase 3£¬Ôò»á³öÏÖ±àÒë´íÎó 
+	default: // æŒ‰ç¬¬3åˆ—ï¼Œæˆç»©ä¸åŒæŒ‰å‡åºæ’åˆ—ï¼Œç›¸åŒæŒ‰å­¦å·å‡åºæ’åˆ— 
+	         // æ­¤å¤„è‹¥å†™æˆcase 3ï¼Œåˆ™ä¼šå‡ºç°ç¼–è¯‘é”™è¯¯ 
 		if (a.grade != b.grade) return a.grade < b.grade;
 		else return a.id < b.id;
 		break;
@@ -90,14 +90,14 @@ bool cmp(student a, student b)
 int main()
 {
 	int n;
-	scanf("%d%d", &n, &c); // n¸öÑ§Éú£¬µÚcÁĞ 
-	for(int i = 0; i < n; i++) { // ÊäÈë 
+	scanf("%d%d", &n, &c); // nä¸ªå­¦ç”Ÿï¼Œç¬¬cåˆ— 
+	for(int i = 0; i < n; i++) { // è¾“å…¥ 
 		scanf("%d %s %d", &stu[i].id, stu[i].name, &stu[i].grade);
 	}
 	
-	sort(stu, stu + n, cmp); // ÅÅĞò 
+	sort(stu, stu + n, cmp); // æ’åº 
 	
-	for (int i = 0; i < n; i++) { // Êä³ö 
+	for (int i = 0; i < n; i++) { // è¾“å‡º 
 		printf("%06d %s %d\n", stu[i].id, stu[i].name, stu[i].grade);
 	}
 	return 0;

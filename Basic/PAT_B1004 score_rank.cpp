@@ -1,31 +1,31 @@
 /*
-1004. ³É¼¨ÅÅÃû (20)
-Ê±¼äÏÞÖÆ£º400ms  ÄÚ´æÏÞÖÆ£º64MB  ´úÂë³¤¶ÈÏÞÖÆ£º16KB
+1004. æˆç»©æŽ’å (20)
+æ—¶é—´é™åˆ¶ï¼š400ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
-ÌâÄ¿ÃèÊö£º
-¶ÁÈënÃûÑ§ÉúµÄÐÕÃû¡¢Ñ§ºÅ¡¢³É¼¨£¬·Ö±ðÊä³ö³É¼¨×î¸ßºÍ³É¼¨×îµÍÑ§ÉúµÄÐÕÃûºÍÑ§ºÅ¡£
+é¢˜ç›®æè¿°ï¼š
+è¯»å…¥nåå­¦ç”Ÿçš„å§“åã€å­¦å·ã€æˆç»©ï¼Œåˆ†åˆ«è¾“å‡ºæˆç»©æœ€é«˜å’Œæˆç»©æœ€ä½Žå­¦ç”Ÿçš„å§“åå’Œå­¦å·ã€‚
 
-ÊäÈë¸ñÊ½£º
-Ã¿¸ö²âÊÔÊäÈë°üº¬1¸ö²âÊÔÓÃÀý£¬¸ñÊ½Îª
+è¾“å…¥æ ¼å¼ï¼š
+æ¯ä¸ªæµ‹è¯•è¾“å…¥åŒ…å«1ä¸ªæµ‹è¯•ç”¨ä¾‹ï¼Œæ ¼å¼ä¸º
 
-  µÚ1ÐÐ£ºÕýÕûÊýn
-  µÚ2ÐÐ£ºµÚ1¸öÑ§ÉúµÄÐÕÃû Ñ§ºÅ ³É¼¨
-  µÚ3ÐÐ£ºµÚ2¸öÑ§ÉúµÄÐÕÃû Ñ§ºÅ ³É¼¨
+  ç¬¬1è¡Œï¼šæ­£æ•´æ•°n
+  ç¬¬2è¡Œï¼šç¬¬1ä¸ªå­¦ç”Ÿçš„å§“å å­¦å· æˆç»©
+  ç¬¬3è¡Œï¼šç¬¬2ä¸ªå­¦ç”Ÿçš„å§“å å­¦å· æˆç»©
   ... ... ...
-  µÚn+1ÐÐ£ºµÚn¸öÑ§ÉúµÄÐÕÃû Ñ§ºÅ ³É¼¨
+  ç¬¬n+1è¡Œï¼šç¬¬nä¸ªå­¦ç”Ÿçš„å§“å å­¦å· æˆç»©
   
-ÆäÖÐÐÕÃûºÍÑ§ºÅ¾ùÎª²»³¬¹ý10¸ö×Ö·ûµÄ×Ö·û´®£¬³É¼¨Îª0µ½100Ö®¼äµÄÒ»¸öÕûÊý£¬ÕâÀï±£Ö¤ÔÚÒ»×é²âÊÔÓÃÀýÖÐÃ»ÓÐÁ½¸öÑ§ÉúµÄ³É¼¨ÊÇÏàÍ¬µÄ¡£
+å…¶ä¸­å§“åå’Œå­¦å·å‡ä¸ºä¸è¶…è¿‡10ä¸ªå­—ç¬¦çš„å­—ç¬¦ä¸²ï¼Œæˆç»©ä¸º0åˆ°100ä¹‹é—´çš„ä¸€ä¸ªæ•´æ•°ï¼Œè¿™é‡Œä¿è¯åœ¨ä¸€ç»„æµ‹è¯•ç”¨ä¾‹ä¸­æ²¡æœ‰ä¸¤ä¸ªå­¦ç”Ÿçš„æˆç»©æ˜¯ç›¸åŒçš„ã€‚
 
-Êä³ö¸ñÊ½£º
-¶ÔÃ¿¸ö²âÊÔÓÃÀýÊä³ö2ÐÐ£¬µÚ1ÐÐÊÇ³É¼¨×î¸ßÑ§ÉúµÄÐÕÃûºÍÑ§ºÅ£¬µÚ2ÐÐÊÇ³É¼¨×îµÍÑ§ÉúµÄÐÕÃûºÍÑ§ºÅ£¬×Ö·û´®¼äÓÐ1¿Õ¸ñ¡£
+è¾“å‡ºæ ¼å¼ï¼š
+å¯¹æ¯ä¸ªæµ‹è¯•ç”¨ä¾‹è¾“å‡º2è¡Œï¼Œç¬¬1è¡Œæ˜¯æˆç»©æœ€é«˜å­¦ç”Ÿçš„å§“åå’Œå­¦å·ï¼Œç¬¬2è¡Œæ˜¯æˆç»©æœ€ä½Žå­¦ç”Ÿçš„å§“åå’Œå­¦å·ï¼Œå­—ç¬¦ä¸²é—´æœ‰1ç©ºæ ¼ã€‚
 
-ÊäÈëÑùÀý£º
+è¾“å…¥æ ·ä¾‹ï¼š
 3
 Joe Math990112 89
 Mike CS991301 100
 Mary EE990830 95
 
-Êä³öÑùÀý£º
+è¾“å‡ºæ ·ä¾‹ï¼š
 Mike CS991301
 Joe Math990112
  */
@@ -35,35 +35,35 @@ Joe Math990112
 #include <cstdio>
 
 struct student {
-	char name[15]; // ÐÕÃû 
-	char ID[15]; // Ñ§ºÅ 
-	int score; // ³É¼¨ 
+	char name[15]; // å§“å 
+	char ID[15]; // å­¦å· 
+	int score; // æˆç»© 
 };
 
 int main()
 {
 	int n, max, min, max_i, min_i;
 	scanf("%d", &n);
-	student stu[n]; // Ñ§Éú½á¹¹ÌåÊý×é 
+	student stu[n]; // å­¦ç”Ÿç»“æž„ä½“æ•°ç»„ 
 	for (int i = 0; i < n; i++) {
 		scanf("%s %s %d", &stu[i].name, &stu[i].ID, &stu[i].score);
-		if (i == 0) { // ×î¸ß³É¼¨¡¢×îµÍ³É¼¨¾ù³õÊ¼»¯ÎªµÚÒ»¸öÑ§ÉúµÄ³É¼¨ 
+		if (i == 0) { // æœ€é«˜æˆç»©ã€æœ€ä½Žæˆç»©å‡åˆå§‹åŒ–ä¸ºç¬¬ä¸€ä¸ªå­¦ç”Ÿçš„æˆç»© 
 			max = stu[i].score;
 			max_i = i;
 			min = stu[i].score;
 			min_i = i;
 		}
-		if (stu[i].score > max) { // ±È½ÏµÃ³ö×î¸ß³É¼¨¼°ÆäÊý×éÏÂ±ê 
+		if (stu[i].score > max) { // æ¯”è¾ƒå¾—å‡ºæœ€é«˜æˆç»©åŠå…¶æ•°ç»„ä¸‹æ ‡ 
 			max = stu[i].score;
 			max_i = i;
 		}
-		if (stu[i].score < min) { // ±È½ÏµÃ³ö×îµÍ³É¼¨¼°ÆäÊý×éÏÂ±ê
+		if (stu[i].score < min) { // æ¯”è¾ƒå¾—å‡ºæœ€ä½Žæˆç»©åŠå…¶æ•°ç»„ä¸‹æ ‡
 			min = stu[i].score;
 			min_i = i;
 		}
 	}
 	
-	printf("%s %s\n", stu[max_i].name, stu[max_i].ID); // Êä³ö³É¼¨×î¸ßÕßÐÅÏ¢ 
-	printf("%s %s\n", stu[min_i].name, stu[min_i].ID); // Êä³ö³É¼¨×îµÍÕßÐÅÏ¢
+	printf("%s %s\n", stu[max_i].name, stu[max_i].ID); // è¾“å‡ºæˆç»©æœ€é«˜è€…ä¿¡æ¯ 
+	printf("%s %s\n", stu[min_i].name, stu[min_i].ID); // è¾“å‡ºæˆç»©æœ€ä½Žè€…ä¿¡æ¯
 	return 0;
 }

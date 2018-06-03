@@ -1,6 +1,6 @@
 /*
 1016. Phone Bills (25)
-Ê±¼äÏŞÖÆ£º400ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š400ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 A long-distance telephone company charges its customers by the following rules:
@@ -46,24 +46,24 @@ Total amount: $638.80
 
 
 #include <cstdio>
-#include <cstring> // strcmpº¯ÊıÍ·ÎÄ¼ş 
-#include <algorithm> // sortº¯ÊıÍ·ÎÄ¼ş 
+#include <cstring> // strcmpå‡½æ•°å¤´æ–‡ä»¶ 
+#include <algorithm> // sortå‡½æ•°å¤´æ–‡ä»¶ 
 
-using namespace std; // sortÔÚstdÖĞ
+using namespace std; // sortåœ¨stdä¸­
 
 struct record {
-	char name[25]; // ĞÕÃû 
-	int mon, day, hou, min; // ÔÂ£¬ÈÕ£¬Ê±£¬·Ö 
-	int flag; // 1Îªon-line£¬0Îªoff-line 
+	char name[25]; // å§“å 
+	int mon, day, hou, min; // æœˆï¼Œæ—¥ï¼Œæ—¶ï¼Œåˆ† 
+	int flag; // 1ä¸ºon-lineï¼Œ0ä¸ºoff-line 
 };
 
 const int maxn = 1010;
 record r[maxn]; 
 
-// ±È½Ïº¯Êı 
+// æ¯”è¾ƒå‡½æ•° 
 bool cmp(record a, record b)
 {
-	// ĞÕÃû²»Í¬°´×ÖÄ¸ĞòÅÅÁĞ£¬ĞÕÃûÏàÍ¬°´Ê±¼äÏÈºóÅÅÁĞ 
+	// å§“åä¸åŒæŒ‰å­—æ¯åºæ’åˆ—ï¼Œå§“åç›¸åŒæŒ‰æ—¶é—´å…ˆåæ’åˆ— 
 	if (strcmp(a.name, b.name)) return strcmp(a.name, b.name) < 0;
 	else if (a.day != b.day) return a.day < b.day; 
 	else if (a.hou != b.hou) return a.hou < b.hou;
@@ -72,58 +72,58 @@ bool cmp(record a, record b)
 
 int main()
 {
-	int rate[24]; // Ã¿Ğ¡Ê±·ÑÂÊ 
+	int rate[24]; // æ¯å°æ—¶è´¹ç‡ 
 	for (int i = 0; i < 24; i++) {
 		scanf("%d", &rate[i]);
 	}
 	
 	int n;
-	char flag[10]; // on-line»òoff-line 
+	char flag[10]; // on-lineæˆ–off-line 
 	scanf("%d", &n);
-	for (int i = 0; i < n; i++) { // ÊäÈënÌõÍ¨»°¼ÇÂ¼ 
+	for (int i = 0; i < n; i++) { // è¾“å…¥næ¡é€šè¯è®°å½• 
 		scanf("%s %d:%d:%d:%d %s", 
 			r[i].name, &r[i].mon, &r[i].day, &r[i].hou, &r[i].min, flag);
 		if (!strcmp(flag, "on-line")) r[i].flag = 1;
 		else if (!strcmp(flag, "off-line")) r[i].flag = 0;
 	}
 	
-	sort(r, r + n, cmp); // ÅÅĞò 
+	sort(r, r + n, cmp); // æ’åº 
 	
-	int total = 0; // ¿Í»§Ã¿ÔÂ×Ü»°·Ñ 
+	int total = 0; // å®¢æˆ·æ¯æœˆæ€»è¯è´¹ 
 	for(int i = 0; i < n; i++) {
-		if (!strcmp(r[i].name, r[i + 1].name)) { // ĞÕÃûÏàÍ¬ 
-			// on-lineºÍoff-lineÅä¶Ô
+		if (!strcmp(r[i].name, r[i + 1].name)) { // å§“åç›¸åŒ 
+			// on-lineå’Œoff-lineé…å¯¹
 			if (r[i].flag == 1 && r[i + 1].flag == 0) { 
-				// µÚÒ»´ÎÓĞĞ§Í¨»°£¬Êä³ö¿Í»§ĞÕÃûºÍÔÂ·İ£¬µÚ¶ş´ÎÔò²»±ØÔÙÊä³ö 
+				// ç¬¬ä¸€æ¬¡æœ‰æ•ˆé€šè¯ï¼Œè¾“å‡ºå®¢æˆ·å§“åå’Œæœˆä»½ï¼Œç¬¬äºŒæ¬¡åˆ™ä¸å¿…å†è¾“å‡º 
 				if (!total) printf("%s %02d\n", r[i].name, r[i].mon);
 				
-				// Êä³ö¸Ã¼ÇÂ¼Í¨»°ÆğÖ¹Ê±¼ä£¬²»×ã2Î»ÒÔ0²¹Æë 
+				// è¾“å‡ºè¯¥è®°å½•é€šè¯èµ·æ­¢æ—¶é—´ï¼Œä¸è¶³2ä½ä»¥0è¡¥é½ 
 				printf("%02d:%02d:%02d ", r[i].day, r[i].hou, r[i].min); 
 				printf("%02d:%02d:%02d ", r[i+1].day, r[i+1].hou, r[i+1].min);
 				
-				int minute = 0, bill = 0; // ·ÖÖÓÊı£¬»°·Ñ 
-				// µÚ1Ìõ¼ÇÂ¼·ÖÖÓÊı²»¶Ï¼Ó1Ö±ÖÁÓëµÚ2Ìõ¼ÇÂ¼Ê±¼äÏàµÈ
-				// ¼´¿ÉµÃµ½±¾´ÎÍ¨»°Ê±³¤£¬Í¬Ê±¼ÆËã³öÏàÓ¦»°·Ñ 
+				int minute = 0, bill = 0; // åˆ†é’Ÿæ•°ï¼Œè¯è´¹ 
+				// ç¬¬1æ¡è®°å½•åˆ†é’Ÿæ•°ä¸æ–­åŠ 1ç›´è‡³ä¸ç¬¬2æ¡è®°å½•æ—¶é—´ç›¸ç­‰
+				// å³å¯å¾—åˆ°æœ¬æ¬¡é€šè¯æ—¶é•¿ï¼ŒåŒæ—¶è®¡ç®—å‡ºç›¸åº”è¯è´¹ 
 				while (r[i].day < r[i + 1].day 
 					|| r[i].hou < r[i + 1].hou || r[i].min < r[i + 1].min) {
 					r[i].min++;
 					minute++;
-					bill += rate[r[i].hou]; // ¸Ã·ÖÖÓËùÔÚĞ¡Ê±Çø¼ä¶ÎµÄ»°·Ñ 
-					if (r[i].min == 60) { // ·ÖÖÓ×ÔÔöÖÁ60 
-						r[i].hou++; // Ğ¡Ê±½ø1 
-						r[i].min = 0; // ·ÖÖÓ¹é0 
+					bill += rate[r[i].hou]; // è¯¥åˆ†é’Ÿæ‰€åœ¨å°æ—¶åŒºé—´æ®µçš„è¯è´¹ 
+					if (r[i].min == 60) { // åˆ†é’Ÿè‡ªå¢è‡³60 
+						r[i].hou++; // å°æ—¶è¿›1 
+						r[i].min = 0; // åˆ†é’Ÿå½’0 
 					}
-					if (r[i].hou == 24) { // Ğ¡Ê±×ÔÔöÖÁ24 
-						r[i].day++; // ÌìÊı½ø1 
-						r[i].hou = 0; // Ğ¡Ê±¹é0 
+					if (r[i].hou == 24) { // å°æ—¶è‡ªå¢è‡³24 
+						r[i].day++; // å¤©æ•°è¿›1 
+						r[i].hou = 0; // å°æ—¶å½’0 
 					}
 				}
 				
-				// Êä³öÍ¨»°Ê±³¤ºÍÃÀÔªÖÆ»°·Ñ 
+				// è¾“å‡ºé€šè¯æ—¶é•¿å’Œç¾å…ƒåˆ¶è¯è´¹ 
 				printf("%d $%.2f\n", minute, bill / 100.0);
-				total += bill; // ÀÛ¼Æ¸ÃÔÂ×Ü»°·Ñ 
+				total += bill; // ç´¯è®¡è¯¥æœˆæ€»è¯è´¹ 
 			} 
-		} else { // ×Ü»°·Ñ²»Îª0ÔòÊä³ö£¬²¢¹é0 
+		} else { // æ€»è¯è´¹ä¸ä¸º0åˆ™è¾“å‡ºï¼Œå¹¶å½’0 
 			if (total) printf("Total amount: $%.2f\n", total / 100.0);
 			total = 0;
 		}

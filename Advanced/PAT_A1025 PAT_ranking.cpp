@@ -1,6 +1,6 @@
 /*
 1025. PAT Ranking (25)
-Ê±¼äÏŞÖÆ£º200ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š200ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 Programming Ability Test (PAT) is organized by the College of Computer Science and Technology of Zhejiang University. Each test is supposed to run simultaneously in several places, and the ranklists will be merged immediately after the test. Now it is your job to write a program to correctly merge all the ranklists and generate the final rank.
@@ -45,71 +45,71 @@ Sample Output:
  
  
 #include <cstdio>
-#include <cstring> // strcmpº¯ÊıÍ·ÎÄ¼ş 
-#include <algorithm> // sortº¯ÊıÍ·ÎÄ¼ş 
+#include <cstring> // strcmpå‡½æ•°å¤´æ–‡ä»¶ 
+#include <algorithm> // sortå‡½æ•°å¤´æ–‡ä»¶ 
 
-using namespace std; // sortÔÚstdÖĞ 
+using namespace std; // sortåœ¨stdä¸­ 
 
 struct testee {
-	char reg_num[15]; // ×¢²áºÅ 
-	int loc_num; // ¿¼µãºÅ 
-	int score; // ·ÖÊı 
-	int local_r; // ¿¼µãÅÅÃû 
-	int final_r; // ×îÖÕÅÅÃû 
+	char reg_num[15]; // æ³¨å†Œå· 
+	int loc_num; // è€ƒç‚¹å· 
+	int score; // åˆ†æ•° 
+	int local_r; // è€ƒç‚¹æ’å 
+	int final_r; // æœ€ç»ˆæ’å 
 };
 
-const int maxn = 30010; // ²»Ğ¡ÓÚ100 * 300 
+const int maxn = 30010; // ä¸å°äº100 * 300 
 testee t[maxn]; 
 
-// ±È½Ïº¯Êı 
+// æ¯”è¾ƒå‡½æ•° 
 bool cmp(testee a, testee b)
 {
-	// ·ÖÊı²»µÈ°´·ÖÊı´Ó´óµ½Ğ¡ÅÅĞò£¬·ÖÊıÏàµÈ°´×¢²áºÅ´ÓĞ¡µ½´óÅÅĞò 
+	// åˆ†æ•°ä¸ç­‰æŒ‰åˆ†æ•°ä»å¤§åˆ°å°æ’åºï¼Œåˆ†æ•°ç›¸ç­‰æŒ‰æ³¨å†Œå·ä»å°åˆ°å¤§æ’åº 
 	if (a.score != b.score) return a.score > b.score;
 	else return strcmp(a.reg_num, b.reg_num) < 0;
 }
 
 int main()
 {
-	int n, k, num = 0; // ¿¼µãÊı£¬Ã¿¸ö¿¼µã¿¼ÉúÊı£¬×Ü¹²¿¼ÉúÊı 
+	int n, k, num = 0; // è€ƒç‚¹æ•°ï¼Œæ¯ä¸ªè€ƒç‚¹è€ƒç”Ÿæ•°ï¼Œæ€»å…±è€ƒç”Ÿæ•° 
 	scanf("%d", &n);
 	
-	for (int i = 0; i < n; i++) { // n¸ö¿¼µã 
-		scanf("%d", &k); // Ã¿¸ö¿¼µãk¸ö¿¼Éú 
+	for (int i = 0; i < n; i++) { // nä¸ªè€ƒç‚¹ 
+		scanf("%d", &k); // æ¯ä¸ªè€ƒç‚¹kä¸ªè€ƒç”Ÿ 
 		
 		for (int j = 0; j < k; j++) {
-			scanf("%s %d", &t[num].reg_num, &t[num].score); // ÊäÈë¿¼ÉúĞÅÏ¢ 
-			t[num].loc_num = i + 1; // ¿¼µãºÅ 
-			num++; // ¿¼ÉúÊı¼Ó1 
+			scanf("%s %d", &t[num].reg_num, &t[num].score); // è¾“å…¥è€ƒç”Ÿä¿¡æ¯ 
+			t[num].loc_num = i + 1; // è€ƒç‚¹å· 
+			num++; // è€ƒç”Ÿæ•°åŠ 1 
 		}
 		
-		sort(t + num - k, t + num, cmp); // ¶ÔÃ¿¸ö¿¼µã¿¼ÉúÅÅĞò
+		sort(t + num - k, t + num, cmp); // å¯¹æ¯ä¸ªè€ƒç‚¹è€ƒç”Ÿæ’åº
 		
-		// Çó¿¼ÉúÔÚËùÔÚ¿¼µãµÄÅÅÃû 
+		// æ±‚è€ƒç”Ÿåœ¨æ‰€åœ¨è€ƒç‚¹çš„æ’å 
 		int rank = 1;
 		for (int j = num - k; j < num; j++) {
-			// ·Ç¸Ã¿¼µãµÚÒ»¸ö¿¼ÉúÇÒ·ÖÊıºÍÉÏÒ»¿¼Éú·ÖÊı²»µÈ 
+			// éè¯¥è€ƒç‚¹ç¬¬ä¸€ä¸ªè€ƒç”Ÿä¸”åˆ†æ•°å’Œä¸Šä¸€è€ƒç”Ÿåˆ†æ•°ä¸ç­‰ 
 			if (j > 0 && t[j].score != t[j - 1].score) {
 				rank = j - (num - k) + 1;
 			}
-			t[j].local_r = rank; // ±£´æ¿¼Éú¿¼µãÅÅÃû 
+			t[j].local_r = rank; // ä¿å­˜è€ƒç”Ÿè€ƒç‚¹æ’å 
 		}
 	}
 	
-	sort(t, t + num, cmp); // ¶ÔËùÓĞ¿¼ÉúÅÅĞò 
+	sort(t, t + num, cmp); // å¯¹æ‰€æœ‰è€ƒç”Ÿæ’åº 
 	
-	// Çó¿¼ÉúµÄ×îÖÕÅÅÃû 
+	// æ±‚è€ƒç”Ÿçš„æœ€ç»ˆæ’å 
 	int rank = 1;
 	for (int i = 0; i < num; i++) {
-		// ·ÇµÚÒ»¸ö¿¼ÉúÇÒ·ÖÊıºÍÉÏÒ»¿¼Éú·ÖÊı²»µÈ 
+		// éç¬¬ä¸€ä¸ªè€ƒç”Ÿä¸”åˆ†æ•°å’Œä¸Šä¸€è€ƒç”Ÿåˆ†æ•°ä¸ç­‰ 
 		if (i > 0 && t[i].score != t[i - 1].score) {
 			rank = i + 1;
 		}
-		t[i].final_r = rank; // ±£´æ¿¼Éú×îÖÕÅÅÃû 
+		t[i].final_r = rank; // ä¿å­˜è€ƒç”Ÿæœ€ç»ˆæ’å 
 	}
 	
-	printf("%d\n", num); // Êä³ö×Ü¹²¿¼ÉúÊı 
-	for (int i = 0; i < num; i++) { // Êä³ö¿¼Éú×ÜÅÅÃûÇé¿ö 
+	printf("%d\n", num); // è¾“å‡ºæ€»å…±è€ƒç”Ÿæ•° 
+	for (int i = 0; i < num; i++) { // è¾“å‡ºè€ƒç”Ÿæ€»æ’åæƒ…å†µ 
 		printf("%s %d %d %d\n", t[i].reg_num, t[i].final_r, 
 			t[i].loc_num, t[i].local_r);
 	}

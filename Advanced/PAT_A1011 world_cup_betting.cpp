@@ -1,6 +1,6 @@
 /*
 1011. World Cup Betting (20)
-Ê±¼äÏŞÖÆ£º400ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š400ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 With the 2010 FIFA World Cup running, football fans the world over were becoming increasingly excited as the best players from the best teams doing battles for the World Cup trophy in South Africa. Similarly, football betting fans were putting their money where their mouths were, by laying all manner of World Cup bets.
@@ -35,18 +35,18 @@ T T W 37.98
 
 int main()
 {
-	char result[3] = {'W', 'T', 'L'}; // Ó®¡¢Æ½¡¢Êä 
-	double game[3][3], max[3]; // Ã¿¾ÖÓÎÏ·ÊıÖµ£¬Ã¿¾ÖÓÎÏ·×î´óÊıÖµ 
-	int index[3]; // Ã¿¾Ö×î´óÊıÖµµÄÏÂ±ê 
+	char result[3] = {'W', 'T', 'L'}; // èµ¢ã€å¹³ã€è¾“ 
+	double game[3][3], max[3]; // æ¯å±€æ¸¸æˆæ•°å€¼ï¼Œæ¯å±€æ¸¸æˆæœ€å¤§æ•°å€¼ 
+	int index[3]; // æ¯å±€æœ€å¤§æ•°å€¼çš„ä¸‹æ ‡ 
 	
-	for (int i = 0; i < 3; i++) { // ³õÊ¼»¯maxÃ¿Ò»ÏîÎª-1 
+	for (int i = 0; i < 3; i++) { // åˆå§‹åŒ–maxæ¯ä¸€é¡¹ä¸º-1 
 		max[i] = -1;
 	}
 	
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
 			scanf("%lf", &game[i][j]);
-			if (game[i][j] > max[i]) { // ±È½ÏµÃ³öÃ¿¾ÖÓÎÏ·µÄ×î´óÖµ¼°ÏÂ±ê 
+			if (game[i][j] > max[i]) { // æ¯”è¾ƒå¾—å‡ºæ¯å±€æ¸¸æˆçš„æœ€å¤§å€¼åŠä¸‹æ ‡ 
 				max[i] = game[i][j];
 				index[i] = j;
 			}
@@ -54,14 +54,14 @@ int main()
 	}
 	
 	double profit = 1.0;
-	for (int i = 0; i < 3; i++) { // ¼ÆËã×î´óÀûÈó 
+	for (int i = 0; i < 3; i++) { // è®¡ç®—æœ€å¤§åˆ©æ¶¦ 
 		profit *= max[i];
 	}
 	profit = (profit * 0.65 - 1) * 2;
 	
-	for (int i = 0; i < 3; i++) { // Êä³ö×î´óÊıÖµÏÂ±êËù¶ÔÓ¦µÄ½á¹û 
+	for (int i = 0; i < 3; i++) { // è¾“å‡ºæœ€å¤§æ•°å€¼ä¸‹æ ‡æ‰€å¯¹åº”çš„ç»“æœ 
 		printf("%c ", result[index[i]]);
 	}
-	printf("%.2f\n", profit); // ±£ÁôÁ½Î»Ğ¡Êı
+	printf("%.2f\n", profit); // ä¿ç•™ä¸¤ä½å°æ•°
 	return 0;
 }

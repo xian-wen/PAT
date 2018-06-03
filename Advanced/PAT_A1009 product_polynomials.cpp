@@ -1,6 +1,6 @@
 /*
 1009. Product of Polynomials (25)
-Ê±¼äÏŞÖÆ£º400ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š400ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 This time, you are supposed to find A*B where A and B are two polynomials.
@@ -24,43 +24,43 @@ Sample Output:
 #include <cstdio>
 
 const int N1 = 1001, N2 = 2001; 
-double a[N1] = {0.0}; // ¶àÏîÊ½A£¬Ö¸ÊıÎªÏÂ±ê£¬ÏµÊıÎªÔªËØ£¬³õÊ¼»¯Îª0 
-double ab[N2] = {0.0}; // ¶àÏîÊ½A*B£¬Á½Ö¸ÊıÎª1000µÄÏîÏà³ËÖ¸Êı¿É´ïµ½2000 
+double a[N1] = {0.0}; // å¤šé¡¹å¼Aï¼ŒæŒ‡æ•°ä¸ºä¸‹æ ‡ï¼Œç³»æ•°ä¸ºå…ƒç´ ï¼Œåˆå§‹åŒ–ä¸º0 
+double ab[N2] = {0.0}; // å¤šé¡¹å¼A*Bï¼Œä¸¤æŒ‡æ•°ä¸º1000çš„é¡¹ç›¸ä¹˜æŒ‡æ•°å¯è¾¾åˆ°2000 
 
 int main()
 {
-	int k, exp; // ÏîÊı£¬Ö¸Êı 
-	double coe; // ÏµÊı 
+	int k, exp; // é¡¹æ•°ï¼ŒæŒ‡æ•° 
+	double coe; // ç³»æ•° 
 	
 	scanf("%d", &k);
 	for (int i = 0; i < k; i++) {
-		scanf("%d%lf", &exp, &coe); // ¶àÏîÊ½A·ÇÁãÏîÖ¸Êı¡¢ÏµÊı 
+		scanf("%d%lf", &exp, &coe); // å¤šé¡¹å¼Aéé›¶é¡¹æŒ‡æ•°ã€ç³»æ•° 
 		a[exp] += coe;
 	}
 	
 	scanf("%d", &k);
 	for (int i = 0; i < k; i++) {
-		scanf("%d%lf", &exp, &coe); // ¶àÏîÊ½B·ÇÁãÏîÖ¸Êı¡¢ÏµÊı
-		int exp_temp = exp; // ±£´æexpÖµ 
-		double coe_temp = coe; // ±£´æcoeÖµ
-		for (int j = 0; j < N1; j++) { // ±éÀúaÖĞ·ÇÁãÏî
-			if (a[j]) { // ÏµÊıÏà³Ë£¬Ö¸ÊıÏà¼Ó£¬´æÓÚabÖĞ 
+		scanf("%d%lf", &exp, &coe); // å¤šé¡¹å¼Béé›¶é¡¹æŒ‡æ•°ã€ç³»æ•°
+		int exp_temp = exp; // ä¿å­˜expå€¼ 
+		double coe_temp = coe; // ä¿å­˜coeå€¼
+		for (int j = 0; j < N1; j++) { // éå†aä¸­éé›¶é¡¹
+			if (a[j]) { // ç³»æ•°ç›¸ä¹˜ï¼ŒæŒ‡æ•°ç›¸åŠ ï¼Œå­˜äºabä¸­ 
 				coe *= a[j];
 				exp += j;
 				ab[exp] += coe;
-				exp = exp_temp; // exp»Ø¹éÔ­Öµ£¬ÒÔ±¸ºóÓÃ 
-				coe = coe_temp; // coe»Ø¹éÔ­Öµ£¬ÒÔ±¸ºóÓÃ 
+				exp = exp_temp; // expå›å½’åŸå€¼ï¼Œä»¥å¤‡åç”¨ 
+				coe = coe_temp; // coeå›å½’åŸå€¼ï¼Œä»¥å¤‡åç”¨ 
 			}
 		}
 	}
 	
 	int count = 0;
-	for (int i = 0; i < N2; i++) { // Í³¼ÆabÖĞ·ÇÁãÏî 
+	for (int i = 0; i < N2; i++) { // ç»Ÿè®¡abä¸­éé›¶é¡¹ 
 		if (ab[i]) count++;
 	}
 	printf("%d", count);
 	
-	for(int i = N2 - 1; i >= 0; i--) { // Êä³öabÖĞ·ÇÁãÏî 
+	for(int i = N2 - 1; i >= 0; i--) { // è¾“å‡ºabä¸­éé›¶é¡¹ 
 		if (ab[i]) {
 			printf(" %d %.1f", i, ab[i]);
 		}

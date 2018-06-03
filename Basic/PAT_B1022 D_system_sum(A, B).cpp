@@ -1,20 +1,20 @@
 /*
-1022. D½øÖÆµÄA+B (20)
-Ê±¼äÏÞÖÆ£º100ms  ÄÚ´æÏÞÖÆ£º64MB  ´úÂë³¤¶ÈÏÞÖÆ£º16KB
+1022. Dè¿›åˆ¶çš„A+B (20)
+æ—¶é—´é™åˆ¶ï¼š100ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
-ÌâÄ¿ÃèÊö£º
-ÊäÈëÁ½¸ö·Ç¸º10½øÖÆÕûÊýAºÍB(<=2^30^-1)£¬Êä³öA+BµÄD (1 < D <= 10)½øÖÆÊý¡£
+é¢˜ç›®æè¿°ï¼š
+è¾“å…¥ä¸¤ä¸ªéžè´Ÿ10è¿›åˆ¶æ•´æ•°Aå’ŒB(<=2^30^-1)ï¼Œè¾“å‡ºA+Bçš„D (1 < D <= 10)è¿›åˆ¶æ•°ã€‚
 
-ÊäÈë¸ñÊ½£º
-ÊäÈëÔÚÒ»ÐÐÖÐÒÀ´Î¸ø³ö3¸öÕûÊýA¡¢BºÍD¡£
+è¾“å…¥æ ¼å¼ï¼š
+è¾“å…¥åœ¨ä¸€è¡Œä¸­ä¾æ¬¡ç»™å‡º3ä¸ªæ•´æ•°Aã€Bå’ŒDã€‚
 
-Êä³ö¸ñÊ½£º
-Êä³öA+BµÄD½øÖÆÊý¡£
+è¾“å‡ºæ ¼å¼ï¼š
+è¾“å‡ºA+Bçš„Dè¿›åˆ¶æ•°ã€‚
 
-ÊäÈëÑùÀý£º
+è¾“å…¥æ ·ä¾‹ï¼š
 123 456 8
 
-Êä³öÑùÀý£º
+è¾“å‡ºæ ·ä¾‹ï¼š
 1103
  */
 
@@ -25,17 +25,17 @@
 int main()
 {
 	int a, b, d;
-	scanf("%d%d%d", &a, &b, &d); // ÊýA£¬ÊýB£¬D½øÖÆ 
+	scanf("%d%d%d", &a, &b, &d); // æ•°Aï¼Œæ•°Bï¼ŒDè¿›åˆ¶ 
 	
 	int x = a + b;
-	int ans[100], num = 0; // ansÊý×é´æ·ÅD½øÖÆµÄÃ¿Ò»Î»£¬numÎªÎ»Êý 
+	int ans[100], num = 0; // ansæ•°ç»„å­˜æ”¾Dè¿›åˆ¶çš„æ¯ä¸€ä½ï¼Œnumä¸ºä½æ•° 
 	
 	do {
-		ans[num++] = x % d; // ³ý»ùÈ¡Óà 
+		ans[num++] = x % d; // é™¤åŸºå–ä½™ 
 		x /= d;  
-	} while (x); // ÉÌ²»Îª0½øÐÐÑ­»· 
+	} while (x); // å•†ä¸ä¸º0è¿›è¡Œå¾ªçŽ¯ 
 	
-	for (int i = num - 1; i >= 0; i--) { // Êä³ö½øÖÆ×ª»»ºóµÄA+B 
+	for (int i = num - 1; i >= 0; i--) { // è¾“å‡ºè¿›åˆ¶è½¬æ¢åŽçš„A+B 
 		printf("%d", ans[i]);
 	}
 	return 0;

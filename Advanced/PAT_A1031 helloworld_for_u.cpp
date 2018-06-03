@@ -1,6 +1,6 @@
 /*
 1031. Hello World for U (20)
-Ê±¼äÏŞÖÆ£º400ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š400ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 Given any string of N (>=5) characters, you are asked to form the characters into the shape of U. For example, "helloworld" can be printed as:
@@ -31,23 +31,23 @@ lowor
 
 
 #include <cstdio>
-#include <cstring> // strlenº¯ÊıÍ·ÎÄ¼ş 
+#include <cstring> // strlenå‡½æ•°å¤´æ–‡ä»¶ 
 
 int main()
 {
 	char str[85];
-	gets(str); // ÊäÈë×Ö·û´® 
-	int n = strlen(str); // Çó×Ö·û´®³¤¶È 
-	int row = (n + 2) / 3; // ĞĞÊı 
-	int col = n - 2 * (row - 1); // ÁĞÊı£¬¼´×îºóÒ»ĞĞ×Ö·û¸öÊı 
+	gets(str); // è¾“å…¥å­—ç¬¦ä¸² 
+	int n = strlen(str); // æ±‚å­—ç¬¦ä¸²é•¿åº¦ 
+	int row = (n + 2) / 3; // è¡Œæ•° 
+	int col = n - 2 * (row - 1); // åˆ—æ•°ï¼Œå³æœ€åä¸€è¡Œå­—ç¬¦ä¸ªæ•° 
 	
 	for (int i = 0; i < row; i++) {
-		printf("%c", str[i]); // Ã¿Ò»ĞĞ¿ªÍ·Êä³öµÚi¸ö×Ö·û 
-		for (int j = 0; j < col - 2; j++) { // Ã¿Ò»ĞĞÖĞ¼äÊä³ö¿Õ¸ñ»ò×Ö·û 
-			if (i < row -1)	printf(" "); // Ç°row-1ĞĞÖĞ¼äÊä³ö¿Õ¸ñ 
-			else printf("%c", str[j + i + 1]); // ×îºóÒ»ĞĞÖĞ¼äÊä³ö×Ö·û 
+		printf("%c", str[i]); // æ¯ä¸€è¡Œå¼€å¤´è¾“å‡ºç¬¬iä¸ªå­—ç¬¦ 
+		for (int j = 0; j < col - 2; j++) { // æ¯ä¸€è¡Œä¸­é—´è¾“å‡ºç©ºæ ¼æˆ–å­—ç¬¦ 
+			if (i < row -1)	printf(" "); // å‰row-1è¡Œä¸­é—´è¾“å‡ºç©ºæ ¼ 
+			else printf("%c", str[j + i + 1]); // æœ€åä¸€è¡Œä¸­é—´è¾“å‡ºå­—ç¬¦ 
 		}
-		printf("%c\n", str[n - i - 1]); // Ã¿Ò»ĞĞÄ©Î²Êä³öµ¹ÊıµÚi¸ö×Ö·û 
+		printf("%c\n", str[n - i - 1]); // æ¯ä¸€è¡Œæœ«å°¾è¾“å‡ºå€’æ•°ç¬¬iä¸ªå­—ç¬¦ 
 	}
 	return 0;
 }

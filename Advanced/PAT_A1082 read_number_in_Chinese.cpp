@@ -1,6 +1,6 @@
 /*
 1082. Read Number in Chinese (25)
-Ê±¼äÏŞÖÆ£º400ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š400ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 Given an integer with no more than 9 digits, you are supposed to read it in the traditional Chinese way. Output "Fu" first if it is negative. For example, -123456789 is read as "Fu yi Yi er Qian san Bai si Shi wu Wan liu Qian qi Bai ba Shi jiu". Note: zero ("ling") must be handled correctly according to the Chinese tradition. For example, 100800 is "yi Shi Wan ling ba Bai".
@@ -27,7 +27,7 @@ yi Shi Wan ling ba Bai
 
 
 #include <cstdio>
-#include <cstring> // strlen¡¢strcatº¯ÊıÍ·ÎÄ¼ş 
+#include <cstring> // strlenã€strcatå‡½æ•°å¤´æ–‡ä»¶ 
 
 char digit[10][5] = { // digit[1]="yi", digit[2]="er"...
 	"ling", "yi", "er", "san", "si", "wu", "liu", "qi", "ba", "jiu"
@@ -37,7 +37,7 @@ char pos[10][5] = { // pos[1]="Shi", pos[2]="Bai"...
 	"Ge", "Shi", "Bai", "Qian", "Wan", "Shi", "Bai", "Qian", "Yi"
 };
 
-// ·´×ª×Ö·û´®str[]
+// åè½¬å­—ç¬¦ä¸²str[]
 void reverse(char str[])
 {
 	int len = strlen(str);
@@ -50,51 +50,51 @@ void reverse(char str[])
 
 int main()
 {
-	char str[20], ans[20][20]; // ´æ·ÅÕûÊı£¬´æ·Å½á¹û
-	gets(str); // ÊäÈë×Ö·û´®
-	int len = strlen(str); // »ñÈ¡×Ö·û´®³¤¶È
-	if (str[0] == '-') { // ¸ºÊı
-		printf("Fu "); // ÏÈÊä³öFuºÍ¿Õ¸ñ
-		len--; // ´®³¤ÉáÈ¥¸ººÅ
+	char str[20], ans[20][20]; // å­˜æ”¾æ•´æ•°ï¼Œå­˜æ”¾ç»“æœ
+	gets(str); // è¾“å…¥å­—ç¬¦ä¸²
+	int len = strlen(str); // è·å–å­—ç¬¦ä¸²é•¿åº¦
+	if (str[0] == '-') { // è´Ÿæ•°
+		printf("Fu "); // å…ˆè¾“å‡ºFuå’Œç©ºæ ¼
+		len--; // ä¸²é•¿èˆå»è´Ÿå·
 	}
-	reverse(str); // ·´×ª×Ö·û´®
+	reverse(str); // åè½¬å­—ç¬¦ä¸²
 
-	int num = 0; // ansÖĞ×Ö·û´®¸öÊı
-	bool zero = true; // 0×Ö·ûµÄÅĞ¶Ï£¬ÓÃÒÔ´¦ÀílingµÄ·¢Òô
-	for (int i = 0; i < len; i++) { // ±éÀú×Ö·û´®
-		if (str[i] != '0') { // ·ÇÁã×Ö·û
-			// iÎª3¡¢7³ıÍâ£¬ÒòQianÖ®Ç°µÄling²»·¢Òô
-			if ((i + 1) % 4) zero = false; // Óöµ½·ÇÁã×Ö·ûÖÃÎªfalse
+	int num = 0; // ansä¸­å­—ç¬¦ä¸²ä¸ªæ•°
+	bool zero = true; // 0å­—ç¬¦çš„åˆ¤æ–­ï¼Œç”¨ä»¥å¤„ç†lingçš„å‘éŸ³
+	for (int i = 0; i < len; i++) { // éå†å­—ç¬¦ä¸²
+		if (str[i] != '0') { // éé›¶å­—ç¬¦
+			// iä¸º3ã€7é™¤å¤–ï¼Œå› Qianä¹‹å‰çš„lingä¸å‘éŸ³
+			if ((i + 1) % 4) zero = false; // é‡åˆ°éé›¶å­—ç¬¦ç½®ä¸ºfalse
 
-			if (i > 0) { // Ê®Î»¼°ÒÔÉÏ
-				strcpy(ans[num], pos[i]); // ¶ÔÓ¦Î»µÄÆ´Òô´æÓÚansÖĞ
+			if (i > 0) { // åä½åŠä»¥ä¸Š
+				strcpy(ans[num], pos[i]); // å¯¹åº”ä½çš„æ‹¼éŸ³å­˜äºansä¸­
 
-				// Ê®Íò¡¢°ÙÍò¡¢Ç§ÍòÖĞÍòµÄÆ´ÒôÁ¬½ÓÔÚÏàÓ¦Î»µÄºóÃæ
+				// åä¸‡ã€ç™¾ä¸‡ã€åƒä¸‡ä¸­ä¸‡çš„æ‹¼éŸ³è¿æ¥åœ¨ç›¸åº”ä½çš„åé¢
 				if ((i == 5 && str[i - 1] == '0')
 				        || (i == 6 && str[i - 1] == '0' && str[i - 2] == '0')
 				        || (i == 7 && str[i - 1] == '0' && str[i - 2] == '0'
 				            && str[i - 3] == '0')) {
 					strcat(ans[num], " Wan");
 				}
-				num++; // numÖ¸ÏòÏÂÒ»Î»
+				num++; // numæŒ‡å‘ä¸‹ä¸€ä½
 			}
 
-			// Êı×Ö×Ö·û×ª»»³ÉÆ´Òô×Ö·û´®£¬´æÓÚansÖĞ
+			// æ•°å­—å­—ç¬¦è½¬æ¢æˆæ‹¼éŸ³å­—ç¬¦ä¸²ï¼Œå­˜äºansä¸­
 			strcpy(ans[num++], digit[str[i] - '0']);
-		} else { // Áã×Ö·û
-			if (!zero) { // Ö®Ç°ÓĞ·ÇÁã×Ö·û
-				strcpy(ans[num++], "ling"); // ling´æÓÚansÖĞ
-				zero = true; // zeroÖØÖÃ£¬ÒÔ±¸ºóÓÃ
+		} else { // é›¶å­—ç¬¦
+			if (!zero) { // ä¹‹å‰æœ‰éé›¶å­—ç¬¦
+				strcpy(ans[num++], "ling"); // lingå­˜äºansä¸­
+				zero = true; // zeroé‡ç½®ï¼Œä»¥å¤‡åç”¨
 			}
 		}
 	}
 
-	if (len == 1 && str[0] == '0') { // 0ÌØÅĞ
+	if (len == 1 && str[0] == '0') { // 0ç‰¹åˆ¤
 		printf("ling");
-	} else { // ·Ç0
-		for (int i = num - 1; i >= 0; i--) { // ÄæĞòÊä³öans
+	} else { // é0
+		for (int i = num - 1; i >= 0; i--) { // é€†åºè¾“å‡ºans
 			printf("%s", ans[i]);
-			if (i) printf(" "); // ÖĞ¼äÓĞ¿Õ¸ñ£¬Ä©Î²ÎŞ¿Õ¸ñ
+			if (i) printf(" "); // ä¸­é—´æœ‰ç©ºæ ¼ï¼Œæœ«å°¾æ— ç©ºæ ¼
 		}
 	}
 	return 0;

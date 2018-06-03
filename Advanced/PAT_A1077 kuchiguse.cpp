@@ -1,6 +1,6 @@
 /*
 1077. Kuchiguse (20)
-Ê±¼äÏŞÖÆ£º100ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š100ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 The Japanese language is notorious for its sentence ending particles. Personal preference of such particles can be considered as a reflection of the speaker's personality. Such a preference is called "Kuchiguse" and is often exaggerated artistically in Anime and Manga. For example, the artificial sentence ending particle "nyan~" is often used as a stereotype for characters with a cat-like personality:
@@ -38,9 +38,9 @@ nai
 
 
 #include <cstdio>
-#include <cstring> // strlenº¯ÊıÍ·ÎÄ¼ş 
+#include <cstring> // strlenå‡½æ•°å¤´æ–‡ä»¶ 
 
-// ×Ö·û´®Äæ×ª 
+// å­—ç¬¦ä¸²é€†è½¬ 
 void reverse(char str[])
 {
 	int len = strlen(str);
@@ -55,51 +55,51 @@ int main()
 {
 	int n;
 	scanf("%d", &n);
-	getchar(); // ÎüÊÕ¿Õ¸ñ 
+	getchar(); // å¸æ”¶ç©ºæ ¼ 
 	
-	char str[110][260], suf[260]; // ´æ·Ån¸ö×Ö·û´®£¬´æ·ÅÏàÍ¬ºó×º 
-	gets(str[0]); // ÊäÈë×Ö·û´® 
+	char str[110][260], suf[260]; // å­˜æ”¾nä¸ªå­—ç¬¦ä¸²ï¼Œå­˜æ”¾ç›¸åŒåç¼€ 
+	gets(str[0]); // è¾“å…¥å­—ç¬¦ä¸² 
 	gets(str[1]); 
 	
-	int len0 = strlen(str[0]); // Çó×Ö·û´®³¤¶È 
+	int len0 = strlen(str[0]); // æ±‚å­—ç¬¦ä¸²é•¿åº¦ 
 	int len1 = strlen(str[1]);  
-	int len = len0 < len1 ? len0 : len1; // lenÈ¡Ğ¡Õß 
+	int len = len0 < len1 ? len0 : len1; // lenå–å°è€… 
 	
-	reverse(str[0]); // ·´×ª×Ö·û´® 
+	reverse(str[0]); // åè½¬å­—ç¬¦ä¸² 
 	reverse(str[1]);
 	
-	for (int i = 0; i < len; i++) { // ±éÀúÁ½×Ö·û´® 
-		if (str[0][i] == str[1][i]) { // Æ¥Åä 
+	for (int i = 0; i < len; i++) { // éå†ä¸¤å­—ç¬¦ä¸² 
+		if (str[0][i] == str[1][i]) { // åŒ¹é… 
 			suf[i] = str[0][i];
-		} else break; // ·¢ÏÖµÚÒ»¸ö²»Æ¥Åä×Ö·û¼´ÍË³ö 
+		} else break; // å‘ç°ç¬¬ä¸€ä¸ªä¸åŒ¹é…å­—ç¬¦å³é€€å‡º 
 	}
 	
-	int len_suf = strlen(suf); // Çóºó×º³¤¶È 
+	int len_suf = strlen(suf); // æ±‚åç¼€é•¿åº¦ 
 	
-	if (n > 2 && len_suf) { // ×Ö·û´®Êı¶àÓÚ2ÇÒºó×º´æÔÚ 
+	if (n > 2 && len_suf) { // å­—ç¬¦ä¸²æ•°å¤šäº2ä¸”åç¼€å­˜åœ¨ 
 		for (int i = 2; i < n; i++) {  
-			gets(str[i]); // ÊäÈëºóĞø×Ö·û´®
+			gets(str[i]); // è¾“å…¥åç»­å­—ç¬¦ä¸²
 			int leni = strlen(str[i]);  
-			len = leni < len_suf ? leni : len_suf; // ¸üĞÂlen£¬·ÀÖ¹·ÃÎÊÔ½½ç
+			len = leni < len_suf ? leni : len_suf; // æ›´æ–°lenï¼Œé˜²æ­¢è®¿é—®è¶Šç•Œ
 			reverse(str[i]); 
 			
-			// ÅĞ¶Ï×Ö·û´®Í¬ºó×ºÊÇ·ñÆ¥Åä
-			for (int j = 0; j < len; j++) { // ±éÀúÁ½×Ö·û´®
-				if (str[i][j] != suf[j]) { // ²»Æ¥Åä 
-					suf[j] = '\0'; // ÒÔ½áÊø±êÖ¾¸üĞÂºó×º 
-					break; // ÍË³öÑ­»· 
+			// åˆ¤æ–­å­—ç¬¦ä¸²åŒåç¼€æ˜¯å¦åŒ¹é…
+			for (int j = 0; j < len; j++) { // éå†ä¸¤å­—ç¬¦ä¸²
+				if (str[i][j] != suf[j]) { // ä¸åŒ¹é… 
+					suf[j] = '\0'; // ä»¥ç»“æŸæ ‡å¿—æ›´æ–°åç¼€ 
+					break; // é€€å‡ºå¾ªç¯ 
 				}
 			}
 			
-			len_suf = strlen(suf); // ¸üĞÂºó×º³¤¶È 
-			if (len_suf == 0) break; // ºó×º²»´æÔÚÍË³öÑ­»· 
+			len_suf = strlen(suf); // æ›´æ–°åç¼€é•¿åº¦ 
+			if (len_suf == 0) break; // åç¼€ä¸å­˜åœ¨é€€å‡ºå¾ªç¯ 
 		}
 	}
 	
-	if (len_suf) { // ´æÔÚºó×º 
-		reverse(suf); // ·´×ªºó×º 
-		puts(suf); // Êä³öºó×º 
-	} else { // ºó×º²»´æÔÚ 
+	if (len_suf) { // å­˜åœ¨åç¼€ 
+		reverse(suf); // åè½¬åç¼€ 
+		puts(suf); // è¾“å‡ºåç¼€ 
+	} else { // åç¼€ä¸å­˜åœ¨ 
 		puts("nai");
 	}
 	return 0;

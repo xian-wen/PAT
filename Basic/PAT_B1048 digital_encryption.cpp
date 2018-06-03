@@ -1,27 +1,27 @@
 /*
-1048. Êý×Ö¼ÓÃÜ(20)
-Ê±¼äÏÞÖÆ£º400ms  ÄÚ´æÏÞÖÆ£º64MB  ´úÂë³¤¶ÈÏÞÖÆ£º16KB
+1048. æ•°å­—åŠ å¯†(20)
+æ—¶é—´é™åˆ¶ï¼š400ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
-ÌâÄ¿ÃèÊö£º
-±¾ÌâÒªÇóÊµÏÖÒ»ÖÖÊý×Ö¼ÓÃÜ·½·¨¡£Ê×ÏÈ¹Ì¶¨Ò»¸ö¼ÓÃÜÓÃÕýÕûÊýA£¬¶ÔÈÎÒ»ÕýÕûÊýB£¬½«ÆäÃ¿1Î»Êý×ÖÓëAµÄ¶ÔÓ¦Î»ÖÃÉÏµÄÊý×Ö½øÐÐÒÔÏÂÔËËã£º¶ÔÆæÊýÎ»£¬¶ÔÓ¦Î»µÄÊý×ÖÏà¼Óºó¶Ô13È¡Óà¡ª¡ªÕâÀïÓÃJ´ú±í10¡¢Q´ú±í11¡¢K´ú±í12£»¶ÔÅ¼ÊýÎ»£¬ÓÃBµÄÊý×Ö¼õÈ¥AµÄÊý×Ö£¬Èô½á¹ûÎª¸ºÊý£¬ÔòÔÙ¼Ó10¡£ÕâÀïÁî¸öÎ»ÎªµÚ1Î»¡£
+é¢˜ç›®æè¿°ï¼š
+æœ¬é¢˜è¦æ±‚å®žçŽ°ä¸€ç§æ•°å­—åŠ å¯†æ–¹æ³•ã€‚é¦–å…ˆå›ºå®šä¸€ä¸ªåŠ å¯†ç”¨æ­£æ•´æ•°Aï¼Œå¯¹ä»»ä¸€æ­£æ•´æ•°Bï¼Œå°†å…¶æ¯1ä½æ•°å­—ä¸ŽAçš„å¯¹åº”ä½ç½®ä¸Šçš„æ•°å­—è¿›è¡Œä»¥ä¸‹è¿ç®—ï¼šå¯¹å¥‡æ•°ä½ï¼Œå¯¹åº”ä½çš„æ•°å­—ç›¸åŠ åŽå¯¹13å–ä½™â€”â€”è¿™é‡Œç”¨Jä»£è¡¨10ã€Qä»£è¡¨11ã€Kä»£è¡¨12ï¼›å¯¹å¶æ•°ä½ï¼Œç”¨Bçš„æ•°å­—å‡åŽ»Açš„æ•°å­—ï¼Œè‹¥ç»“æžœä¸ºè´Ÿæ•°ï¼Œåˆ™å†åŠ 10ã€‚è¿™é‡Œä»¤ä¸ªä½ä¸ºç¬¬1ä½ã€‚
 
-ÊäÈë¸ñÊ½£º
-ÊäÈëÔÚÒ»ÐÐÖÐÒÀ´Î¸ø³öAºÍB£¬¾ùÎª²»³¬¹ý100Î»µÄÕýÕûÊý£¬Æä¼äÒÔ¿Õ¸ñ·Ö¸ô¡£
+è¾“å…¥æ ¼å¼ï¼š
+è¾“å…¥åœ¨ä¸€è¡Œä¸­ä¾æ¬¡ç»™å‡ºAå’ŒBï¼Œå‡ä¸ºä¸è¶…è¿‡100ä½çš„æ­£æ•´æ•°ï¼Œå…¶é—´ä»¥ç©ºæ ¼åˆ†éš”ã€‚
 
-Êä³ö¸ñÊ½£º
-ÔÚÒ»ÐÐÖÐÊä³ö¼ÓÃÜºóµÄ½á¹û¡£
+è¾“å‡ºæ ¼å¼ï¼š
+åœ¨ä¸€è¡Œä¸­è¾“å‡ºåŠ å¯†åŽçš„ç»“æžœã€‚
 
-ÊäÈëÑùÀý£º
+è¾“å…¥æ ·ä¾‹ï¼š
 1234567 368782971
 
-Êä³öÑùÀý£º
+è¾“å‡ºæ ·ä¾‹ï¼š
 3695Q8118
  */
 
 
 
 #include <cstdio>
-#include <cstring> // strlenº¯ÊýÍ·ÎÄ¼þ 
+#include <cstring> // strlenå‡½æ•°å¤´æ–‡ä»¶ 
 
 const int maxn = 110;
 
@@ -31,39 +31,39 @@ char digital[13] = { // digital[10]='J', digital[11]='Q', digital[12]='K'
 
 int main()
 {
-	char a[maxn], b[maxn], c[maxn] = {0}; // ¼ÓÃÜÓÃÊýa£¬Êýb£¬c´æ·Å½á¹û 
-	scanf("%s %s", a, b); // ÊäÈë 
+	char a[maxn], b[maxn], c[maxn] = {0}; // åŠ å¯†ç”¨æ•°aï¼Œæ•°bï¼Œcå­˜æ”¾ç»“æžœ 
+	scanf("%s %s", a, b); // è¾“å…¥ 
 	
-	int lena = strlen(a); // Çó×Ö·û´®³¤¶È 
+	int lena = strlen(a); // æ±‚å­—ç¬¦ä¸²é•¿åº¦ 
 	int lenb = strlen(b);
-	int len = lena > lenb ? lena : lenb; // lenÈ¡´óÕß
+	int len = lena > lenb ? lena : lenb; // lenå–å¤§è€…
 	
-	// ½«a¡¢bÖÐ²»Æ¥Åä²¿·ÖÒÔ0²¹Æë 
-	if (lena < lenb) { // b±Èa´ó 
-		for (int i = lena - 1; i >= 0; i--) // aÖÐËùÓÐÔªËØÓÒÒÆlenb-lenaÎ» 
+	// å°†aã€bä¸­ä¸åŒ¹é…éƒ¨åˆ†ä»¥0è¡¥é½ 
+	if (lena < lenb) { // bæ¯”aå¤§ 
+		for (int i = lena - 1; i >= 0; i--) // aä¸­æ‰€æœ‰å…ƒç´ å³ç§»lenb-lenaä½ 
 			a[i + lenb - lena] = a[i];
 			
-		for (int i = 0; i < lenb - lena; i++) // ÒÔ0²¹Æë×ó¶Ë¿ÕÈ±Î»ÖÃ 
+		for (int i = 0; i < lenb - lena; i++) // ä»¥0è¡¥é½å·¦ç«¯ç©ºç¼ºä½ç½® 
 			a[i] = '0';
-	} else if (lena > lenb) { // a±Èb´ó 
-		for (int i = lenb - 1; i >= 0; i--) // bÖÐËùÓÐÔªËØÓÒÒÆlena-lenbÎ» 
+	} else if (lena > lenb) { // aæ¯”bå¤§ 
+		for (int i = lenb - 1; i >= 0; i--) // bä¸­æ‰€æœ‰å…ƒç´ å³ç§»lena-lenbä½ 
 			b[i + lena - lenb] = b[i];
 		
-		for (int i = 0; i < lena - lenb; i++) // ÒÔ0²¹Æë×ó¶Ë¿ÕÈ±Î»ÖÃ
+		for (int i = 0; i < lena - lenb; i++) // ä»¥0è¡¥é½å·¦ç«¯ç©ºç¼ºä½ç½®
 			b[i] = '0';
 	}
 	
-	for (int i = len - 1; i >= 0; i -= 2) { // ´ÓÓÒÊýµÚ1Î»¿ªÊ¼ 
-		// ×Ö·ûÐÍ×ªÕûÐÍºóÔÙ¼ÆËã
+	for (int i = len - 1; i >= 0; i -= 2) { // ä»Žå³æ•°ç¬¬1ä½å¼€å§‹ 
+		// å­—ç¬¦åž‹è½¬æ•´åž‹åŽå†è®¡ç®—
 		c[i] = digital[((a[i] - '0') + (b[i] - '0')) % 13];
 	}	
 	
-	for (int i = len - 2; i >= 0; i -= 2) { // ÓÒÊýµÚ2Î»¿ªÊ¼ 
-		int temp = (b[i] - '0') - (a[i] - '0'); // ×Ö·ûÐÍ×ªÕûÐÍºóÔÙ¼ÆËã
-		if (temp < 0)  temp += 10; // ²îÎª¸º 
-		c[i] = temp + '0'; // ÕûÐÍ×ª×Ö·ûÐÍ
+	for (int i = len - 2; i >= 0; i -= 2) { // å³æ•°ç¬¬2ä½å¼€å§‹ 
+		int temp = (b[i] - '0') - (a[i] - '0'); // å­—ç¬¦åž‹è½¬æ•´åž‹åŽå†è®¡ç®—
+		if (temp < 0)  temp += 10; // å·®ä¸ºè´Ÿ 
+		c[i] = temp + '0'; // æ•´åž‹è½¬å­—ç¬¦åž‹
 	}
 	
-	printf("%s\n", c); // Êä³öc
+	printf("%s\n", c); // è¾“å‡ºc
 	return 0;
 }

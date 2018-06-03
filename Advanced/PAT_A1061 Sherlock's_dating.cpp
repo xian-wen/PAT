@@ -1,6 +1,6 @@
 /*
 1061. Dating (20)
-Ê±¼äÏŞÖÆ£º150ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š150ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 Sherlock Holmes received a note with some strange strings: "Let's date! 3485djDkxh4hhGE 2984akDfkkkkggEdsb s&hgsfdk d&Hyscvnm". It took him only a minute to figure out that those strange strings are actually referring to the coded time "Thursday 14:04" -- since the first common capital English letter (case sensitive) shared by the first two strings is the 4th capital letter 'D', representing the 4th day in a week; the second common character is the 5th capital letter 'E', representing the 14th hour (hence the hours from 0 to 23 in a day are represented by the numbers from 0 to 9 and the capital letters from A to N, respectively); and the English letter shared by the last two strings is 's' at the 4th position, representing the 4th minute. Now given two pairs of strings, you are supposed to help Sherlock decode the dating time.
@@ -24,47 +24,47 @@ THU 14:04
 
 
 #include <cstdio>
-#include <cstring> // strlenº¯ÊıÍ·ÎÄ¼ş 
+#include <cstring> // strlenå‡½æ•°å¤´æ–‡ä»¶ 
 
-// ½¨Á¢Êı×ÖÓëĞÇÆÚ¼äµÄ¹ØÏµ£¬¼´day[0] = "MON", day[1] = "TUE"...
+// å»ºç«‹æ•°å­—ä¸æ˜ŸæœŸé—´çš„å…³ç³»ï¼Œå³day[0] = "MON", day[1] = "TUE"...
 char day[10][5] = {"MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"};
 
 int main()
 {
-	char str[4][65]; // 4¸ö×Ö·û´® 
-	int len[4]; // ¸÷×Ö·û´®³¤¶È 
-	for (int i = 0; i < 4; i++) { // ÊäÈë×Ö·û´®£¬ÇóÆä³¤¶È 
+	char str[4][65]; // 4ä¸ªå­—ç¬¦ä¸² 
+	int len[4]; // å„å­—ç¬¦ä¸²é•¿åº¦ 
+	for (int i = 0; i < 4; i++) { // è¾“å…¥å­—ç¬¦ä¸²ï¼Œæ±‚å…¶é•¿åº¦ 
 		scanf("%s", str[i]);
 		len[i] = strlen(str[i]);
 	}
 	
-	int i; // ¶ÔÇ°2¸ö×Ö·û´®£¬´Ó×óÍùÓÒÖğ¸ö×Ö·û±È½Ï£¬ÕÒ³öµÚ1¶ÔÏàµÈµÄ´óĞ´×ÖÄ¸ 
+	int i; // å¯¹å‰2ä¸ªå­—ç¬¦ä¸²ï¼Œä»å·¦å¾€å³é€ä¸ªå­—ç¬¦æ¯”è¾ƒï¼Œæ‰¾å‡ºç¬¬1å¯¹ç›¸ç­‰çš„å¤§å†™å­—æ¯ 
 	for (i = 0; i < len[0] && i < len[1]; i++) {
 		if (str[0][i] == str[1][i] && str[0][i] >= 'A' && str[0][i] <= 'G') {
-			printf("%s ", day[str[0][i] - 'A']); // ´óĞ´×ÖÄ¸×ª»»³ÉÊı×Ö 
+			printf("%s ", day[str[0][i] - 'A']); // å¤§å†™å­—æ¯è½¬æ¢æˆæ•°å­— 
 			break;
 		}
 	}
 	
-	// ¶ÔÇ°2¸ö×Ö·û´®£¬´ÓÉÏ´Î±È½ÏµÄÏÂÒ»Î»¼ÌĞøÖğ¸ö×Ö·û±È½Ï£¬ÕÒ³öµÚ2¶ÔÏàµÈµÄ×Ö·û 
+	// å¯¹å‰2ä¸ªå­—ç¬¦ä¸²ï¼Œä»ä¸Šæ¬¡æ¯”è¾ƒçš„ä¸‹ä¸€ä½ç»§ç»­é€ä¸ªå­—ç¬¦æ¯”è¾ƒï¼Œæ‰¾å‡ºç¬¬2å¯¹ç›¸ç­‰çš„å­—ç¬¦ 
 	for (int j = i + 1; j < len[0] && j < len[1]; j++) {
 		if (str[0][j] == str[1][j]) {
-			if (str[0][j] >= '0' && str[0][j] <= '9') { // Êı×Ö 
-				printf("%02d:", str[0][j] - '0'); // ×Ö·ûÊı×Ö×ª»»³ÉÕûĞÍÊı×Ö
+			if (str[0][j] >= '0' && str[0][j] <= '9') { // æ•°å­— 
+				printf("%02d:", str[0][j] - '0'); // å­—ç¬¦æ•°å­—è½¬æ¢æˆæ•´å‹æ•°å­—
 				break; 
-			} else if (str[0][j] >= 'A' && str[0][j] <= 'N') { // ´óĞ´×ÖÄ¸ 
-				printf("%d:", str[0][j] - 'A' + 10); // ´óĞ´×ÖÄ¸×ª»»³ÉÊı×Ö 
+			} else if (str[0][j] >= 'A' && str[0][j] <= 'N') { // å¤§å†™å­—æ¯ 
+				printf("%d:", str[0][j] - 'A' + 10); // å¤§å†™å­—æ¯è½¬æ¢æˆæ•°å­— 
 				break; 
 			}
 		}
 	} 
 	
-	// ¶Ôºó2¸ö×Ö·û´®£¬´Ó×óÍùÓÒÖğ¸ö×Ö·û±È½Ï£¬ÕÒ³öµÚÒ»¶ÔÏàµÈµÄÓ¢ÎÄ×ÖÄ¸ 
+	// å¯¹å2ä¸ªå­—ç¬¦ä¸²ï¼Œä»å·¦å¾€å³é€ä¸ªå­—ç¬¦æ¯”è¾ƒï¼Œæ‰¾å‡ºç¬¬ä¸€å¯¹ç›¸ç­‰çš„è‹±æ–‡å­—æ¯ 
 	for (int j = 0; j < len[2] && j < len[3]; j++) {
 		if (str[2][j] == str[3][j]) {
 			if ((str[2][j] >= 'A' && str[2][j] <= 'Z')
 				|| (str[2][j] >= 'a' && str[2][j] <= 'z')) {
-				printf("%02d\n", j); // Êä³öÏàµÈ×ÖÄ¸ËùÔÚÎ»ÖÃ 
+				printf("%02d\n", j); // è¾“å‡ºç›¸ç­‰å­—æ¯æ‰€åœ¨ä½ç½® 
 				break;
 			}
 		}

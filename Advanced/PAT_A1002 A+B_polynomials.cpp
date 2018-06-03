@@ -1,12 +1,12 @@
 /*
 1002. A+B for Polynomials (25)
-Ê±¼äÏŞÖÆ£º400ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š400ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 This time, you are supposed to find A+B where A and B are two polynomials.
 
 Input:
-Each input file contains one test case. Each case occupies 2 lines, and each line contains the information of a polynomial: K N1 a~N1~ N2 a~N2~ ... NK a~NK~, where K is the number of nonzero terms in the polynomial, Ni and a~Ni~ (i=1, 2, ..., K) are the exponents and coefficients, respectively. It is given that 1 <= K <= 10£¬0 <= NK < ... < N2 < N1 <=1000.
+Each input file contains one test case. Each case occupies 2 lines, and each line contains the information of a polynomial: K N1 a~N1~ N2 a~N2~ ... NK a~NK~, where K is the number of nonzero terms in the polynomial, Ni and a~Ni~ (i=1, 2, ..., K) are the exponents and coefficients, respectively. It is given that 1 <= K <= 10ï¼Œ0 <= NK < ... < N2 < N1 <=1000.
 
 Output:
 For each test case you should output the sum of A and B in one line, with the same format as the input. Notice that there must be NO extra space at the end of each line. Please be accurate to 1 decimal place.
@@ -23,33 +23,33 @@ Sample Output:
 
 #include <cstdio>
 
-const int MAX_EXP = 1010; // ×î¸ß´ÎÊı
-double a[MAX_EXP] = {0.0}; // ´ÎÊıÎªÊı×éÏÂ±ê£¬ÏµÊıÎªÊı×éÔªËØ£¬³õÊ¼»¯Îª0
+const int MAX_EXP = 1010; // æœ€é«˜æ¬¡æ•°
+double a[MAX_EXP] = {0.0}; // æ¬¡æ•°ä¸ºæ•°ç»„ä¸‹æ ‡ï¼Œç³»æ•°ä¸ºæ•°ç»„å…ƒç´ ï¼Œåˆå§‹åŒ–ä¸º0
 
 int main()
 {
 	int k, exp, count = 0;
 	double coe;
 
-	scanf("%d", &k); // AÖĞÏîÊı
+	scanf("%d", &k); // Aä¸­é¡¹æ•°
 	for (int i = 0; i < k; i++) {
-		scanf("%d%lf", &exp, &coe); // ´ÎÊı¡¢ÏµÊı
+		scanf("%d%lf", &exp, &coe); // æ¬¡æ•°ã€ç³»æ•°
 		a[exp] += coe;
 	}
 
-	scanf("%d", &k); // BÖĞÏîÊı
+	scanf("%d", &k); // Bä¸­é¡¹æ•°
 	for (int i = 0; i < k; i++) {
 		scanf("%d%lf", &exp, &coe);
 		a[exp] += coe;
 	}
 
 	for (int i = 0; i < MAX_EXP; i++) {
-		if (a[i]) count++; // Í³¼Æ·ÇÁãÏî
+		if (a[i]) count++; // ç»Ÿè®¡éé›¶é¡¹
 	}
 
 	printf("%d", count);
-	for (int i = MAX_EXP - 1; i >= 0; i--) { // ·ÇÁãÏî°´´ÎÊıÓÉ¸ßÖÁµÍÊä³ö
-		if (a[i]) printf(" %d %.1f", i, a[i]); // ÖĞ¼äÓĞ¿Õ¸ñ£¬Ä©Î²ÎŞ¿Õ¸ñ
+	for (int i = MAX_EXP - 1; i >= 0; i--) { // éé›¶é¡¹æŒ‰æ¬¡æ•°ç”±é«˜è‡³ä½è¾“å‡º
+		if (a[i]) printf(" %d %.1f", i, a[i]); // ä¸­é—´æœ‰ç©ºæ ¼ï¼Œæœ«å°¾æ— ç©ºæ ¼
 	}
 	return 0;
 }

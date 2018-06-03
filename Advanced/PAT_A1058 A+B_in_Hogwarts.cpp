@@ -1,6 +1,6 @@
 /*
 1058. A+B in Hogwarts (20)
-Ê±¼äÏŞÖÆ£º50ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š50ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 If you are a fan of Harry Potter, you would know the world of magic has its own currency system -- as Hagrid explained it to Harry, "Seventeen silver Sickles to a Galleon and twenty-nine Knuts to a Sickle, it's easy enough." Your job is to write a program to compute A+B where A and B are given in the standard form of "Galleon.Sickle.Knut" (Galleon is an integer in [0, 10^7^], Sickle is an integer in [0, 17), and Knut is an integer in [0, 29)).
@@ -34,12 +34,12 @@ int main()
 	money a, b;
 	scanf("%ld.%ld.%ld %ld.%ld.%ld", &a.g, &a.s, &a.k, &b.g, &b.s, &b.k);
 	
-	// ½«a¡¢bÈ«²¿×ª»»³ÉKnutÔÙÇóºÍ£¬¿¼ÂÇ¿ÉÄÜÒç³ö£¬Ñ¡long 
+	// å°†aã€bå…¨éƒ¨è½¬æ¢æˆKnutå†æ±‚å’Œï¼Œè€ƒè™‘å¯èƒ½æº¢å‡ºï¼Œé€‰long 
 	long ka = a.g * Galleon + a.s * Sickle + a.k; 
 	long kb = b.g * Galleon + b.s * Sickle + b.k;
 	long sum = ka + kb;
 	
-	// ½«ºÍÒÔ¡°Galleon.Sickle.Knut¡±¸ñÊ½Êä³ö 
+	// å°†å’Œä»¥â€œGalleon.Sickle.Knutâ€æ ¼å¼è¾“å‡º 
 	printf("%ld.%ld.%ld\n", sum / Galleon, 
 		sum % Galleon / Sickle, sum % Sickle);
 	return 0;

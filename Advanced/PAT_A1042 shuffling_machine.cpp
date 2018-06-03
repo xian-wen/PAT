@@ -1,6 +1,6 @@
 /*
 1042. Shuffling Machine (20)
-Ê±¼äÏŞÖÆ£º400ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š400ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 Shuffling is a procedure used to randomize a deck of playing cards. Because standard shuffling techniques are seen as weak, and in order to avoid "inside jobs" where employees collaborate with gamblers by performing inadequate shuffles, many casinos employ automatic shuffling machines. Your task is to simulate a shuffling machine.
@@ -32,7 +32,7 @@ const int max_n = 100;
 
 int main()
 {
-	const char *card0[max_n] = { // 54ÕÅÅÆ´æÓÚcard0ÖĞ 
+	const char *card0[max_n] = { // 54å¼ ç‰Œå­˜äºcard0ä¸­ 
 		"0", "S1", "S2", "S3", "S4", "S5", "S6", "S7",
 		"S8", "S9", "S10", "S11", "S12", "S13",
 		"H1", "H2", "H3", "H4", "H5", "H6", "H7",
@@ -42,32 +42,32 @@ int main()
 		"D1", "D2", "D3", "D4", "D5", "D6", "D7",
 		"D8", "D9", "D10", "D11", "D12", "D13", "J1", "J2"
 		};
-	const char *card1[max_n]; // Ï´ÅÆºó´æÓÚcard1ÖĞ 
+	const char *card1[max_n]; // æ´—ç‰Œåå­˜äºcard1ä¸­ 
 	
-	int k; // Ï´ÅÆ´ÎÊı 
+	int k; // æ´—ç‰Œæ¬¡æ•° 
 	scanf("%d", &k); 
 	
-	int order[max_n]; // Ï´ÅÆÓÃµÄÊı×Ö 
+	int order[max_n]; // æ´—ç‰Œç”¨çš„æ•°å­— 
 	for (int i = 1; i <= 54; i++) {
 		scanf("%d", &order[i]);
 	}
 	
-	for (int i = 1; i <= k; i++) { // Ï´ÅÆk´Î£¬ÔÚcard0ºÍcard1¼äÀ´»Øµ¹ÅÆ 
+	for (int i = 1; i <= k; i++) { // æ´—ç‰Œkæ¬¡ï¼Œåœ¨card0å’Œcard1é—´æ¥å›å€’ç‰Œ 
 		for (int j = 1; j <= 54; j++) { 
-			if (i % 2 == 1) // µÚ1´Î£¨ÆæÊı´Î£©£¬´Ócard0µ¹Èëcard1 
+			if (i % 2 == 1) // ç¬¬1æ¬¡ï¼ˆå¥‡æ•°æ¬¡ï¼‰ï¼Œä»card0å€’å…¥card1 
 				card1[order[j]] = card0[j];
-			else // µÚ2´Î£¨Å¼Êı´Î£©£¬´Ócard1µ¹»Øcard0 
+			else // ç¬¬2æ¬¡ï¼ˆå¶æ•°æ¬¡ï¼‰ï¼Œä»card1å€’å›card0 
 				card0[order[j]] = card1[j]; 
 		}
 	}
 	
 	for (int i = 1; i <= 54; i++) {
-		if (k % 2 == 1) { // Ï´ÆæÊı´ÎÅÆ£¬Êä³öcard1 
+		if (k % 2 == 1) { // æ´—å¥‡æ•°æ¬¡ç‰Œï¼Œè¾“å‡ºcard1 
 			printf("%s", card1[i]);
-		} else { // Ï´Å¼Êı´ÎÅÆ£¬Êä³öcard0
+		} else { // æ´—å¶æ•°æ¬¡ç‰Œï¼Œè¾“å‡ºcard0
 			printf("%s", card0[i]);
 		}
-		if (i < 54) printf(" "); // Ä©Î²ÎŞ¿Õ¸ñ 
+		if (i < 54) printf(" "); // æœ«å°¾æ— ç©ºæ ¼ 
 	}
 	return 0;
 }

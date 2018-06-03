@@ -1,6 +1,6 @@
 /*
 1012. The Best Rank (25)
-Ê±¼äÏŞÖÆ£º400ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š400ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 To evaluate the performance of our first year CS majored students, we consider their grades of three courses only: C - C Programming Language, M - Mathematics (Calculus or Linear Algebra), and E - English. At the mean time, we encourage students by emphasizing on their best ranks -- that is, among the four ranks with respect to the three courses and the average grade, we print the best rank for each student.
@@ -48,70 +48,70 @@ N/A
 
 
 #include <cstdio>
-#include <cstring> // strcmpº¯ÊıÍ·ÎÄ¼ş 
-#include <algorithm> // sortº¯ÊıÍ·ÎÄ¼ş 
+#include <cstring> // strcmpå‡½æ•°å¤´æ–‡ä»¶ 
+#include <algorithm> // sortå‡½æ•°å¤´æ–‡ä»¶ 
 
-using namespace std; // sortÔÚstdÖĞ
+using namespace std; // sortåœ¨stdä¸­
 
 struct student {
-	char id[10]; // Ñ§ºÅ 
+	char id[10]; // å­¦å· 
 	int c[4]; // c[0]='A', c[1]='C', c[2]='M', c[3]='E'
-	int r[4]; // r[0]ÎªAµÄÅÅÃû£¬r[1]ÎªCµÄÅÅÃû£¬r[2]ÎªMµÄÅÅÃû£¬r[3]ÎªEµÄÅÅÃû 
+	int r[4]; // r[0]ä¸ºAçš„æ’åï¼Œr[1]ä¸ºCçš„æ’åï¼Œr[2]ä¸ºMçš„æ’åï¼Œr[3]ä¸ºEçš„æ’å 
 };
 
 struct course {
-	char name; // ¿Î³ÌÃû£¬ÈçA¡¢C¡¢M¡¢E 
-	int priority; // ÓÅÏÈ¼¶£¬AÎª0£¬CÎª1£¬MÎª2£¬EÎª3£¬Ô½Ğ¡ÓÅÏÈ¼¶Ô½¸ß  
-	int rank; // ¸ÃÃÅ¿Î³ÌÅÅÃû 
+	char name; // è¯¾ç¨‹åï¼Œå¦‚Aã€Cã€Mã€E 
+	int priority; // ä¼˜å…ˆçº§ï¼ŒAä¸º0ï¼ŒCä¸º1ï¼ŒMä¸º2ï¼ŒEä¸º3ï¼Œè¶Šå°ä¼˜å…ˆçº§è¶Šé«˜  
+	int rank; // è¯¥é—¨è¯¾ç¨‹æ’å 
 };
 
 const int maxn = 2010;
-student s[maxn]; // ´æ·ÅÓĞ³É¼¨µÄÑ§ÉúĞÅÏ¢ 
-char id[maxn][10]; // ´æ·Å¼ìÑéÕßµÄÑ§ºÅ 
-course c[4]; // c[0]ÎªA£¬c[1]ÎªC£¬c[2]ÎªM£¬c[3]ÎªE 
+student s[maxn]; // å­˜æ”¾æœ‰æˆç»©çš„å­¦ç”Ÿä¿¡æ¯ 
+char id[maxn][10]; // å­˜æ”¾æ£€éªŒè€…çš„å­¦å· 
+course c[4]; // c[0]ä¸ºAï¼Œc[1]ä¸ºCï¼Œc[2]ä¸ºMï¼Œc[3]ä¸ºE 
 
-// AµÄ±È½Ïº¯Êı 
+// Açš„æ¯”è¾ƒå‡½æ•° 
 bool cmp_A(student a, student b)
 {
-	return a.c[0] > b.c[0]; // °´A´Ó´óµ½Ğ¡ÅÅÁĞ 
+	return a.c[0] > b.c[0]; // æŒ‰Aä»å¤§åˆ°å°æ’åˆ— 
 }
 
-// CµÄ±È½Ïº¯Êı 
+// Cçš„æ¯”è¾ƒå‡½æ•° 
 bool cmp_C(student a, student b)
 {
-	return a.c[1] > b.c[1]; // °´C´Ó´óµ½Ğ¡ÅÅÁĞ
+	return a.c[1] > b.c[1]; // æŒ‰Cä»å¤§åˆ°å°æ’åˆ—
 }
 
-// MµÄ±È½Ïº¯Êı 
+// Mçš„æ¯”è¾ƒå‡½æ•° 
 bool cmp_M(student a, student b)
 {
-	return a.c[2] > b.c[2]; // °´M´Ó´óµ½Ğ¡ÅÅÁĞ
+	return a.c[2] > b.c[2]; // æŒ‰Mä»å¤§åˆ°å°æ’åˆ—
 }
 
-// EµÄ±È½Ïº¯Êı 
+// Eçš„æ¯”è¾ƒå‡½æ•° 
 bool cmp_E(student a, student b)
 {
-	return a.c[3] > b.c[3]; // °´E´Ó´óµ½Ğ¡ÅÅÁĞ
+	return a.c[3] > b.c[3]; // æŒ‰Eä»å¤§åˆ°å°æ’åˆ—
 }
 
-// ×î¼ÑÅÅÃû±È½Ïº¯Êı 
+// æœ€ä½³æ’åæ¯”è¾ƒå‡½æ•° 
 bool cmp_best(course a, course b)
 {
-	if (a.rank != b.rank) return a.rank < b.rank; // ÅÅÃû²»µÈ£¬ÅÅÃûĞ¡ÕßÔÚÇ° 
-	else return a.priority < b.priority; // ÅÅÃûÏàµÈ£¬ÓÅÏÈ¼¶Ğ¡ÕßÔÚÇ° 
+	if (a.rank != b.rank) return a.rank < b.rank; // æ’åä¸ç­‰ï¼Œæ’åå°è€…åœ¨å‰ 
+	else return a.priority < b.priority; // æ’åç›¸ç­‰ï¼Œä¼˜å…ˆçº§å°è€…åœ¨å‰ 
 }
 
 int main()
 {
-	int n, m; // ÓĞ³É¼¨ÕßÑ§ÉúÊı£¬²é³É¼¨ÕßÑ§ÉúÊı 
+	int n, m; // æœ‰æˆç»©è€…å­¦ç”Ÿæ•°ï¼ŒæŸ¥æˆç»©è€…å­¦ç”Ÿæ•° 
 	scanf("%d%d", &n, &m);
 
-	for (int i = 0; i < n; i++) { // ÊäÈëÑ§ÉúÑ§ºÅ¡¢¸÷¿Æ³É¼¨¼°Æ½¾ù³É¼¨ 
+	for (int i = 0; i < n; i++) { // è¾“å…¥å­¦ç”Ÿå­¦å·ã€å„ç§‘æˆç»©åŠå¹³å‡æˆç»© 
 		scanf("%s%d%d%d", s[i].id, &s[i].c[1], &s[i].c[2], &s[i].c[3]);
 		s[i].c[0]= (s[i].c[1] + s[i].c[2] + s[i].c[3]) / 3.0 + 0.5;
 	}
 	
-	// °´AÅÅĞò£¬ÅÅÃû¼ÇÂ¼ÓÚr[0]ÖĞ 
+	// æŒ‰Aæ’åºï¼Œæ’åè®°å½•äºr[0]ä¸­ 
 	sort(s, s + n, cmp_A);  
 	int rank = 1;
 	for (int i = 0; i < n; i++) {
@@ -121,7 +121,7 @@ int main()
 		s[i].r[0] = rank;
 	}
 	
-	// °´CÅÅĞò£¬ÅÅÃû¼ÇÂ¼ÓÚr[1]ÖĞ 
+	// æŒ‰Cæ’åºï¼Œæ’åè®°å½•äºr[1]ä¸­ 
 	sort(s, s + n, cmp_C); 
 	rank = 1;
 	for (int i = 0; i < n; i++) {
@@ -131,7 +131,7 @@ int main()
 		s[i].r[1] = rank;
 	}
 	
-	// °´MÅÅĞò£¬ÅÅÃû¼ÇÂ¼ÓÚr[2]ÖĞ 
+	// æŒ‰Mæ’åºï¼Œæ’åè®°å½•äºr[2]ä¸­ 
 	sort(s, s + n, cmp_M); 
 	rank = 1;
 	for (int i = 0; i < n; i++) {
@@ -141,7 +141,7 @@ int main()
 		s[i].r[2] = rank;
 	}
 	
-	// °´EÅÅĞò£¬ÅÅÃû¼ÇÂ¼ÓÚr[3]ÖĞ 
+	// æŒ‰Eæ’åºï¼Œæ’åè®°å½•äºr[3]ä¸­ 
 	sort(s, s + n, cmp_E); 
 	rank = 1;
 	for (int i = 0; i < n; i++) {
@@ -151,33 +151,33 @@ int main()
 		s[i].r[3] = rank;
 	}
 	
-	// °´Ñ§ºÅÖğ¸ö¼ìÑé£¬²¢Êä³öÃ¿¸öÑ§Éú×î¼ÑÅÅÃû¿Î³Ì 
+	// æŒ‰å­¦å·é€ä¸ªæ£€éªŒï¼Œå¹¶è¾“å‡ºæ¯ä¸ªå­¦ç”Ÿæœ€ä½³æ’åè¯¾ç¨‹ 
 	for (int i = 0; i < m; i++) { 
-		scanf("%s", id[i]); // ÊäÈë´ı¼ìÑ§ºÅ 
+		scanf("%s", id[i]); // è¾“å…¥å¾…æ£€å­¦å· 
 		
 		int j = 0;
-		while (j < n && strcmp(id[i], s[j].id)) j++; // ±éÀúÑ§ºÅĞÅÏ¢ 
+		while (j < n && strcmp(id[i], s[j].id)) j++; // éå†å­¦å·ä¿¡æ¯ 
 		
-		if (j == n) printf("N/A\n"); // ²éÎŞ´ËÑ§ºÅ 
-		else { // ÕÒµ½¸ÃÑ§ºÅ 
-			c[0].name = 'A'; // ¸÷¿Î³ÌÃû 
+		if (j == n) printf("N/A\n"); // æŸ¥æ— æ­¤å­¦å· 
+		else { // æ‰¾åˆ°è¯¥å­¦å· 
+			c[0].name = 'A'; // å„è¯¾ç¨‹å 
 			c[1].name = 'C'; 
 			c[2].name = 'M'; 
 			c[3].name = 'E'; 
 			
-			c[0].priority = 0; // ¸÷¿Î³ÌÓÅÏÈ¼¶ 
+			c[0].priority = 0; // å„è¯¾ç¨‹ä¼˜å…ˆçº§ 
 			c[1].priority = 1; 
 			c[2].priority = 2; 
 			c[3].priority = 3; 
 			
-			c[0].rank = s[j].r[0]; // ¸÷¿Î³ÌÅÅÃû 
+			c[0].rank = s[j].r[0]; // å„è¯¾ç¨‹æ’å 
 			c[1].rank = s[j].r[1];
 			c[2].rank = s[j].r[2];
 			c[3].rank = s[j].r[3];
 			
-			sort(c, c + 4, cmp_best); // °´ÅÅÃûÅÅĞò 
+			sort(c, c + 4, cmp_best); // æŒ‰æ’åæ’åº 
 			
-			printf("%d %c\n", c[0].rank, c[0].name); // Êä³ö×î¼ÑÅÅÃû¿Î³Ì
+			printf("%d %c\n", c[0].rank, c[0].name); // è¾“å‡ºæœ€ä½³æ’åè¯¾ç¨‹
 		}
 	}
 	return 0;

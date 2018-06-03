@@ -1,6 +1,6 @@
 /*
 1065. A+B and C (64bit) (20)
-Ê±¼äÏŞÖÆ£º100ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š100ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 Given three integers A, B and C in [-2^63^, 2^63^], you are supposed to tell whether A+B > C.
@@ -32,7 +32,7 @@ int main()
 	int T, i = 1;
 	scanf("%d", &T);
 	while (T--) {
-		long double a, b, c; // long doubleÕ¼16Bytes£¬·¶Î§[-2^127, 2^127-1] 
+		long double a, b, c; // long doubleå 16Bytesï¼ŒèŒƒå›´[-2^127, 2^127-1] 
 		scanf("%llf%llf%llf", &a, &b, &c);
 		if (a + b > c) printf("Case #%d: true\n", i++);
 		else printf("Case #%d: false\n", i++);

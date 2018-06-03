@@ -1,53 +1,53 @@
 /*
-1002 д������� (20)
-ʱ�����ƣ�400ms  �ڴ����ƣ�64MB  ���볤�����ƣ�16KB
+1002 写出这个数 (20)
+时间限制：400ms  内存限制：64MB  代码长度限制：16KB
 
-��Ŀ������
-����һ����Ȼ��n���������λ����֮�ͣ��ú���ƴ��д���͵�ÿһλ���֡�
+题目描述：
+读入一个自然数n，计算其各位数字之和，用汉语拼音写出和的每一位数字。
 
-�����ʽ��
-ÿ�������������1��������������������Ȼ��n��ֵ�����ﱣ֤nС��10^100^��
+输入格式：
+每个测试输入包含1个测试用例，即给出自然数n的值。这里保证n小于10^100^。
 
-�����ʽ��
-��һ�������n�ĸ�λ����֮�͵�ÿһλ��ƴ�����ּ���1 �ո񣬵�һ�������һ��ƴ�����ֺ�û�пո�
+输出格式：
+在一行内输出n的各位数字之和的每一位，拼音数字间有1 空格，但一行中最后一个拼音数字后没有空格。
 
-����������
+输入样例：
 1234567890987654321123456789
 
-���������
+输出样例：
 yi san wu
  */
 
 
 
 #include <cstdio>
-#include <cstring> // strlen����ͷ�ļ� 
+#include <cstring> // strlen函数头文件 
 
-const int maxn = 110; // ����ȡ100��'\0'ҲҪռһλ 
-char n[maxn]; // �����Ȼ�� 
+const int maxn = 110; // 不能取100，'\0'也要占一位 
+char n[maxn]; // 存放自然数 
 
-char digital[10][5] = { // ����0-9���Ӧ����ƴ���Ĺ�ϵ 
+char digital[10][5] = { // 建立0-9与对应汉语拼音的关系 
 	"ling", "yi", "er", "san", "si", "wu", "liu", "qi", "ba", "jiu"
 };
 
 int main()
 {
-	gets(n); // ������Ȼ�� 
+	gets(n); // 输入自然数 
 	
-	int sum = 0, len = strlen(n); // ��Ȼ����λ��֮�ͣ���Ȼ������ 
-	for (int i = 0; i < len; i++) { // ��� 
-		sum += n[i] - '0'; // �ַ�������ת������������ 
+	int sum = 0, len = strlen(n); // 自然数各位数之和，自然数长度 
+	for (int i = 0; i < len; i++) { // 求和 
+		sum += n[i] - '0'; // 字符型数字转换成整型数字 
 	}
 	
-	int ans[5], num = 0; // �͵ĸ�λ���֣�λ�� 
+	int ans[5], num = 0; // 和的各位数字，位数 
 	do {
-		ans[num++] = sum % 10; // ��ȡ��λ 
-		sum /= 10; // ȥ����λ 
-	} while (sum); // ����ѭ������ 
+		ans[num++] = sum % 10; // 获取个位 
+		sum /= 10; // 去除个位 
+	} while (sum); // 非零循环继续 
 	
-	for (int i = num - 1; i >= 0; i--) { // �Ӻ���ǰ�����λ���ֶ�Ӧƴ�� 
+	for (int i = num - 1; i >= 0; i--) { // 从后往前输出各位数字对应拼音 
 		printf("%s", digital[ans[i]]);
-		if (i) printf(" "); // i��Ϊ������ո� 
+		if (i) printf(" "); // i不为零输出空格 
 	}
 	return 0;
 }

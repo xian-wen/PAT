@@ -1,6 +1,6 @@
 /*
 1036. Boys vs Girls (25)
-Ê±¼äÏŞÖÆ£º400ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š400ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
 This time you are asked to tell the difference between the lowest grade of all the male students and the highest grade of all the female students.
@@ -37,16 +37,16 @@ NA
 #include <cstdio>
 
 struct student {
-	char name[15]; // ĞÕÃû 
-	char gender; // ĞÔ±ğ£¬M or F 
-	char ID[15]; // Ñ§ºÅ 
-	int grade; // ³É¼¨ 
+	char name[15]; // å§“å 
+	char gender; // æ€§åˆ«ï¼ŒM or F 
+	char ID[15]; // å­¦å· 
+	int grade; // æˆç»© 
 };
 
 int main()
 {
-	student temp, lowest, highest; // ÁÙÊ±£¬×îµÍ³É¼¨Ñ§Éú£¬×î¸ß³É¼¨Ñ§Éú 
-	// ³õÊ¼»¯×îµÍ³É¼¨Ñ§Éú³É¼¨Îª101£¬ĞÔ±ğÎªX£¬×î¸ß³É¼¨Ñ§Éú³É¼¨Îª-1£¬ĞÔ±ğÎªX 
+	student temp, lowest, highest; // ä¸´æ—¶ï¼Œæœ€ä½æˆç»©å­¦ç”Ÿï¼Œæœ€é«˜æˆç»©å­¦ç”Ÿ 
+	// åˆå§‹åŒ–æœ€ä½æˆç»©å­¦ç”Ÿæˆç»©ä¸º101ï¼Œæ€§åˆ«ä¸ºXï¼Œæœ€é«˜æˆç»©å­¦ç”Ÿæˆç»©ä¸º-1ï¼Œæ€§åˆ«ä¸ºX 
 	lowest.grade = 101;
 	highest.grade = -1;
 	lowest.gender = highest.gender = 'X';
@@ -54,22 +54,22 @@ int main()
 	int N;
 	scanf("%d", &N);
 	while (N--) {
-		// ÊäÈëÑ§ÉúĞÕÃû¡¢ĞÔ±ğ¡¢Ñ§ºÅ¡¢³É¼¨ 
+		// è¾“å…¥å­¦ç”Ÿå§“åã€æ€§åˆ«ã€å­¦å·ã€æˆç»© 
 		scanf("%s %c %s %d", temp.name, &temp.gender, temp.ID, &temp.grade);
-		// ±È½ÏµÃ³öÄĞÉúÖĞµÄ×îµÍ·Ö 
+		// æ¯”è¾ƒå¾—å‡ºç”·ç”Ÿä¸­çš„æœ€ä½åˆ† 
 		if (temp.gender == 'M' && temp.grade < lowest.grade) lowest = temp;
-		// ±È½ÏµÃ³öÅ®ÉúÖĞµÄ×î¸ß·Ö 
+		// æ¯”è¾ƒå¾—å‡ºå¥³ç”Ÿä¸­çš„æœ€é«˜åˆ† 
 		if (temp.gender == 'F' && temp.grade > highest.grade) highest = temp;
 	}
 	
-	// Å®Éú²»´æÔÚ 
+	// å¥³ç”Ÿä¸å­˜åœ¨ 
 	if (highest.gender == 'X') printf("Absent\n");
 	else printf("%s %s\n", highest.name, highest.ID);
-	// ÄĞÉú²»´æÔÚ 
+	// ç”·ç”Ÿä¸å­˜åœ¨ 
 	if (lowest.gender == 'X') printf("Absent\n");
 	else printf("%s %s\n", lowest.name, lowest.ID);
-	// ÄĞÉú²»´æÔÚ»òÕßÅ®Éú²»´æÔÚ 
+	// ç”·ç”Ÿä¸å­˜åœ¨æˆ–è€…å¥³ç”Ÿä¸å­˜åœ¨ 
 	if (lowest.gender == 'X' || highest.gender == 'X') printf("NA\n");
-	else printf("%d\n", highest.grade - lowest.grade); // ³É¼¨Ö®²î 
+	else printf("%d\n", highest.grade - lowest.grade); // æˆç»©ä¹‹å·® 
 	return 0;
 }
