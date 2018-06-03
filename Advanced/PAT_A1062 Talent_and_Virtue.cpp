@@ -1,9 +1,9 @@
 /*
 1062. Talent and Virtue (25)
-Ê±¼äÏŞÖÆ£º200ms  ÄÚ´æÏŞÖÆ£º64MB  ´úÂë³¤¶ÈÏŞÖÆ£º16KB
+æ—¶é—´é™åˆ¶ï¼š200ms  å†…å­˜é™åˆ¶ï¼š64MB  ä»£ç é•¿åº¦é™åˆ¶ï¼š16KB
 
 Description:
-About 900 years ago, a Chinese philosopher Sima Guang wrote a history book in which he talked about people's talent and virtue. According to his theory, a man being outstanding in both talent and virtue must be a "sage£¨Ê¥ÈË£©"; being less excellent but with one's virtue outweighs talent can be called a "nobleman£¨¾ı×Ó£©"; being good in neither is a "fool man£¨ÓŞÈË£©"; yet a fool man is better than a "small man£¨Ğ¡ÈË£©" who prefers talent than virtue.
+About 900 years ago, a Chinese philosopher Sima Guang wrote a history book in which he talked about people's talent and virtue. According to his theory, a man being outstanding in both talent and virtue must be a "sageï¼ˆåœ£äººï¼‰"; being less excellent but with one's virtue outweighs talent can be called a "noblemanï¼ˆå›å­ï¼‰"; being good in neither is a "fool manï¼ˆæ„šäººï¼‰"; yet a fool man is better than a "small manï¼ˆå°äººï¼‰" who prefers talent than virtue.
 Now given the grades of talent and virtue of a group of people, you are supposed to rank them according to Sima Guang's theory.
 
 Input Specification:
@@ -53,25 +53,25 @@ Sample Output:
 
 
 #include <cstdio>
-#include <cstring> // strcmpº¯ÊıÍ·ÎÄ¼ş 
-#include <algorithm> // sortº¯ÊıÍ·ÎÄ¼ş 
+#include <cstring> // strcmpå‡½æ•°å¤´æ–‡ä»¶ 
+#include <algorithm> // sortå‡½æ•°å¤´æ–‡ä»¶ 
 
-using namespace std; // sortÔÚstdÖĞ
+using namespace std; // sortåœ¨stdä¸­
 
 struct student {
-	char id[10]; // ×¼¿¼Ö¤ºÅ 
-	int virtue, talent, sum; // µÂ·Ö£¬²Å·Ö£¬×Ü·Ö 
-	int flag; // Àà±ğ 
+	char id[10]; // å‡†è€ƒè¯å· 
+	int virtue, talent, sum; // å¾·åˆ†ï¼Œæ‰åˆ†ï¼Œæ€»åˆ† 
+	int flag; // ç±»åˆ« 
 };
 
 const int maxn = 100010;
 student stu[maxn];
 
-// ±È½Ïº¯Êı 
+// æ¯”è¾ƒå‡½æ•° 
 bool cmp(student a, student b)
 {
-	// Ğ¡ÀàÅÅÇ°£¬Àà±ğÏàÍ¬Ôò×Ü·Ö¸ßÕßÅÅÇ°
-	// ×Ü·ÖÏàÍ¬ÔòµÂ·Ö¸ßÕßÅÅÇ°£¬µÂ·ÖÏàÍ¬Ôò×¼¿¼Ö¤Ğ¡ÕßÅÅÇ° 
+	// å°ç±»æ’å‰ï¼Œç±»åˆ«ç›¸åŒåˆ™æ€»åˆ†é«˜è€…æ’å‰
+	// æ€»åˆ†ç›¸åŒåˆ™å¾·åˆ†é«˜è€…æ’å‰ï¼Œå¾·åˆ†ç›¸åŒåˆ™å‡†è€ƒè¯å°è€…æ’å‰ 
 	if (a.flag != b.flag) return a.flag < b.flag;  
 	else if (a.sum != b.sum) return a.sum > b.sum; 
 	else if (a.virtue != b.virtue) return a.virtue > b.virtue;
@@ -80,32 +80,32 @@ bool cmp(student a, student b)
 
 int main()
 {
-	int n, L, H; // ¿¼ÉúÈËÊı£¬×îµÍÂ¼È¡Ïß£¬ÓÅÏÈÂ¼È¡Ïß 
+	int n, L, H; // è€ƒç”Ÿäººæ•°ï¼Œæœ€ä½å½•å–çº¿ï¼Œä¼˜å…ˆå½•å–çº¿ 
 	scanf("%d%d%d", &n, &L, &H);
 	
-	int m = n; // Â¼È¡ÈËÊı 
-	for (int i = 0; i < n; i++) { // ÊäÈë¿¼ÉúĞÅÏ¢ 
+	int m = n; // å½•å–äººæ•° 
+	for (int i = 0; i < n; i++) { // è¾“å…¥è€ƒç”Ÿä¿¡æ¯ 
 		scanf("%s%d%d", stu[i].id, &stu[i].virtue, &stu[i].talent);
 		stu[i].sum = stu[i].virtue + stu[i].talent;
 		
 		if (stu[i].virtue < L || stu[i].talent < L) { 
-			stu[i].flag = 5; // µÚ5Àà£¬²»Â¼È¡Õß 
+			stu[i].flag = 5; // ç¬¬5ç±»ï¼Œä¸å½•å–è€… 
 			m--;
 		} else if (stu[i].virtue >= H && stu[i].talent >= H) {
-			stu[i].flag = 1; // µÚ1Àà£¬Ê¥ÈË 
+			stu[i].flag = 1; // ç¬¬1ç±»ï¼Œåœ£äºº 
 		} else if (stu[i].virtue >= H && stu[i].talent < H) {
-			stu[i].flag = 2; // µÚ2Àà£¬¾ı×Ó 
+			stu[i].flag = 2; // ç¬¬2ç±»ï¼Œå›å­ 
 		} else if (stu[i].virtue >= stu[i].talent) {
-			stu[i].flag = 3; // µÚ3Àà£¬ÓŞÈË 
+			stu[i].flag = 3; // ç¬¬3ç±»ï¼Œæ„šäºº 
 		} else {
-			stu[i].flag = 4; // µÚ4Àà£¬Ğ¡ÈË 
+			stu[i].flag = 4; // ç¬¬4ç±»ï¼Œå°äºº 
 		} 
 	}
 	
-	sort(stu, stu + n, cmp); // ÅÅĞò 
+	sort(stu, stu + n, cmp); // æ’åº 
 	
-	printf("%d\n", m); // Êä³öÂ¼È¡ÈËÊı 
-	for (int i = 0; i < m; i++) { // Êä³öÂ¼È¡ÈËĞÅÏ¢ 
+	printf("%d\n", m); // è¾“å‡ºå½•å–äººæ•° 
+	for (int i = 0; i < m; i++) { // è¾“å‡ºå½•å–äººä¿¡æ¯ 
 		printf("%s %d %d\n", stu[i].id, stu[i].virtue, stu[i].talent);
 	}
 	return 0;
