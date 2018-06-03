@@ -6,6 +6,6 @@
  * [PAT-Advanced](#pat-advanced)
  * [PAT-Top](#pat-top)
 
-## PAT-Basic{#b}
-## PAT-Advanced{#a}
-## PAT-Top{#t}
+## PAT-Basic
+## PAT-Advanced
+## PAT-Top
